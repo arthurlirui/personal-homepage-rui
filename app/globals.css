@@ -1,26 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* ─── 学术主题设计令牌（复刻 personal-homepage 主题） ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafbfc;
+  --foreground: #1e293b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* accent 海军蓝主色 */
+  --color-accent: #1e3a5f;
+  --color-accent-light: #2d5a8e;
+  --color-accent-subtle: #e8f0fe;
+
+  /* surface 表面色 */
+  --color-surface: #fafbfc;
+  --color-surface-muted: #f3f4f6;
+  --color-surface-card: #ffffff;
+
+  /* 字体 — 由 Google Fonts @import 提供，配合系统回退 */
+  --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  --font-serif: "Noto Serif SC", "Playfair Display", "Source Serif 4", Georgia, serif;
+
+  /* 内容栏宽度 */
+  --spacing-content: 880px;
+
+  /* 兼容 maxWidth.content */
+  --max-width-content: 880px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-slate-800, #1e293b);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 学术正文衬线字体 */
+  .prose {
+    font-family: var(--font-serif);
+    color: #334155;
+    line-height: 1.75;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-container {
+    max-width: 880px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+    padding-block: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-container {
+      padding-block: 6rem;
+    }
+  }
+
+  .card {
+    background: var(--color-surface-card);
+    border-radius: 0.75rem;
+    border: 1px solid rgb(226 232 240 / 0.8);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08);
+  }
+
+  .nav-link {
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
 }
