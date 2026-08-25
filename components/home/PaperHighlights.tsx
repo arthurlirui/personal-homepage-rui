@@ -1,13 +1,19 @@
+'use client'
+
 import { publications } from '@/data/publications'
+import { useLang } from '@/components/context/LanguageContext'
+import { ui } from '@/data/i18n'
 import { SectionTitle, LinkButton, Badge } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
 import { FileText, ExternalLink } from 'lucide-react'
 
 export default function PaperHighlights() {
+  const { lang } = useLang()
+  const t = ui(lang)
   const featured = publications.filter((p) => p.featured).slice(0, 5)
   return (
     <section className="section-container bg-surface-muted/50">
-      <SectionTitle subtitle="代表性论文 · 涵盖 SIGGRAPH / ICCV / ECCV / ACM TOG">论文精选</SectionTitle>
+      <SectionTitle subtitle={t.paperHighlights.subtitle}>{t.paperHighlights.title}</SectionTitle>
       <div className="space-y-4">
         {featured.map((p, i) => (
           <ScrollReveal key={p.id} delay={i * 0.06}>
@@ -30,7 +36,7 @@ export default function PaperHighlights() {
         ))}
       </div>
       <div className="mt-8 flex items-center gap-6">
-        <LinkButton href="/publications">查看全部论文</LinkButton>
+        <LinkButton href="/publications">{t.paperHighlights.viewAll}</LinkButton>
         <a
           href="https://scholar.google.com/citations?user=P6gAcSsAAAAJ&hl=zh-CN"
           target="_blank"

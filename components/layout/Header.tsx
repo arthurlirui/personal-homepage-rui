@@ -4,19 +4,14 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-
-const navItems = [
-  { href: '/', label: '首页' },
-  { href: '/research', label: '研究方向' },
-  { href: '/publications', label: '学术论文' },
-  { href: '/projects', label: '科研项目' },
-  { href: '/startup', label: '创业' },
-  { href: '/experience', label: '经历' },
-  { href: '/contact', label: '联系' },
-]
+import { useLang } from '@/components/context/LanguageContext'
+import { ui } from '@/data/i18n'
+import { profile } from '@/data/profile'
 
 export default function Header() {
   const pathname = usePathname()
+  const { lang, toggle } = useLang()
+  const t = ui(lang)
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -25,6 +20,18 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const navItems = [
+    { href: '/', label: t.nav.home },
+    { href: '/research', label: t.nav.research },
+    { href: '/publications', label: t.nav.publications },
+    { href: '/projects', label: t.nav.projects },
+    { href: '/startup', label: t.nav.startup },
+    { href: '/experience', label: t.nav.experience },
+    { href: '/contact', label: t.nav.contact },
+  ]
+
+  const brand = lang === 'zh' ? profile.nameZh : profile.name
 
   return (
     <header
@@ -37,7 +44,7 @@ export default function Header() {
           href="/"
           className="text-lg font-serif font-semibold text-accent hover:text-accent-light transition-colors"
         >
-          Rui Li
+          {brand}
         </Link>
 
         {/* Desktop */}
@@ -55,6 +62,7 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
+          <LangToggle lang={lang} onToggle={toggle} className="ml-2" />
         </div>
 
         {/* Mobile toggle */}
@@ -85,9 +93,38 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            <div className="py-2.5 px-3">
+              <LangToggle lang={lang} onToggle={toggle} />
+            </div>
           </div>
         </div>
       )}
     </header>
+  )
+}
+
+function LangToggle({
+  lang,
+  onToggle,
+  className = '',
+}: {
+  lang: 'en' | 'zh'
+  onToggle: () => void
+  className?: string
+}) {
+  return (
+    <button
+      onClick={onToggle}
+      className={`inline-flex items-center gap-1 text-sm font-medium select-none ${className}`}
+      aria-label="Toggle language"
+    >
+      <span className={lang === 'en' ? 'text-accent font-semibold' : 'text-slate-400 hover:text-accent transition-colors'}>
+        EN
+      </span>
+      <span className="text-slate-300">/</span>
+      <span className={lang === 'zh' ? 'text-accent font-semibold' : 'text-slate-400 hover:text-accent transition-colors'}>
+        中
+      </span>
+    </button>
   )
 }

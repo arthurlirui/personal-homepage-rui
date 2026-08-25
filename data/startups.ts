@@ -16,7 +16,7 @@ export interface Startup {
   techStack: string[]
   features: { title: string; desc: string }[]
   featuresZh: { title: string; desc: string }[]
-  metrics?: { label: string; value: string }[]
+  metrics?: { label: string; labelEn: string; value: string; valueEn: string }[]
   accent: string // tailwind color class for icon bg
   icon: 'trending-up' | 'palette' | 'box' | 'cpu'
 }
@@ -57,9 +57,9 @@ export const startups: Startup[] = [
       { title: '真实场景 3D NFT', desc: '将真实世界多视角采集转化为照片级真实 3D NFT 资产（神经渲染）。' },
     ],
     metrics: [
-      { label: '成立', value: '2018' },
-      { label: '状态', value: '运营中' },
-      { label: '方向', value: 'AI × 金融 × 3D' },
+      { label: '成立', labelEn: 'Founded', value: '2018', valueEn: '2018' },
+      { label: '状态', labelEn: 'Status', value: '运营中', valueEn: 'Active' },
+      { label: '方向', labelEn: 'Focus', value: 'AI × 金融 × 3D', valueEn: 'AI × Finance × 3D' },
     ],
     accent: 'bg-accent-subtle text-accent',
     icon: 'trending-up',
@@ -97,9 +97,9 @@ export const startups: Startup[] = [
       { title: '链上铸造', desc: '将照片级真实 3D / 多视角资产铸造为区块链 NFT。' },
     ],
     metrics: [
-      { label: '成立', value: '2021' },
-      { label: '状态', value: '已归档' },
-      { label: '方向', value: 'Web3 × 数字艺术' },
+      { label: '成立', labelEn: 'Founded', value: '2021', valueEn: '2021' },
+      { label: '状态', labelEn: 'Status', value: '已归档', valueEn: 'Archived' },
+      { label: '方向', labelEn: 'Focus', value: 'Web3 × 数字艺术', valueEn: 'Web3 × Digital Art' },
     ],
     accent: 'bg-amber-50 text-amber-700',
     icon: 'palette',

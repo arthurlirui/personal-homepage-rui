@@ -1,4 +1,8 @@
+'use client'
+
 import { news } from '@/data/news'
+import { useLang, pick } from '@/components/context/LanguageContext'
+import { ui } from '@/data/i18n'
 import { SectionTitle, LinkButton } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
 import { Award, FileText, Briefcase, Rocket, Mic } from 'lucide-react'
@@ -20,16 +24,19 @@ const typeColor = {
 }
 
 export default function LatestNews() {
+  const { lang } = useLang()
+  const t = ui(lang)
   const items = [...news]
     .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || b.date.localeCompare(a.date))
     .slice(0, 5)
 
   return (
     <section className="section-container bg-surface-muted/50">
-      <SectionTitle subtitle="近期动态与里程碑">最新动态</SectionTitle>
+      <SectionTitle subtitle={t.latestNews.subtitle}>{t.latestNews.title}</SectionTitle>
       <div className="space-y-3">
         {items.map((n, i) => {
           const Icon = typeIcon[n.type] ?? FileText
+          const title = pick(n.title, n.titleZh, lang)
           return (
             <ScrollReveal key={n.id} delay={i * 0.05}>
               <div className="flex items-start gap-3 py-3 border-b border-slate-100 last:border-0">
@@ -39,7 +46,7 @@ export default function LatestNews() {
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-slate-800">
                     {n.pinned && <span className="text-accent mr-1">★</span>}
-                    {n.titleZh}
+                    {title}
                   </p>
                   <p className="text-xs text-slate-400 mt-0.5">{n.date}</p>
                 </div>
@@ -49,7 +56,7 @@ export default function LatestNews() {
         })}
       </div>
       <div className="mt-8">
-        <LinkButton href="/experience">查看完整经历</LinkButton>
+        <LinkButton href="/experience">{t.latestNews.viewAll}</LinkButton>
       </div>
     </section>
   )

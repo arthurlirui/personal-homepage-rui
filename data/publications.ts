@@ -23,6 +23,26 @@ const me = 'Rui Li'
 
 export const publications: Publication[] = [
   {
+    id: 'point-ladder-tuning',
+    title: 'Point Ladder Tuning: Parameter-Efficient Hierarchical Adaptation for 3D Point Cloud Understanding',
+    authors: ['Junlin Chang', 'Longhao Zou', me],
+    venue: 'European Conference on Computer Vision (ECCV)',
+    venueShort: 'ECCV 2026',
+    year: 2026,
+    type: 'conference',
+    featured: true,
+  },
+  {
+    id: 'geometry-adaptive-polyhedron',
+    title: 'Geometry-Adaptive 3D Convex Polyhedron for Tomographic Reconstruction',
+    authors: ['Yaojian Xu', me, 'Zhiye Tang', 'Longhao Zou', 'Xu Wang'],
+    venue: 'IEEE International Conference on Multimedia and Expo (ICME)',
+    venueShort: 'ICME 2026',
+    year: 2026,
+    type: 'conference',
+    featured: true,
+  },
+  {
     id: 'neat',
     title: 'NeAT: Neural Adaptive Tomography',
     authors: ['Darius Rückert', 'Yuanhao Wang', me, 'Ramzi Idoughi', 'Wolfgang Heidrich'],

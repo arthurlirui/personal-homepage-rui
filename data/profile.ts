@@ -9,6 +9,7 @@ export interface EducationItem {
 
 export interface SocialLink {
   label: string
+  labelEn: string
   href: string
   icon: 'mail' | 'graduation-cap' | 'github' | 'linkedin' | 'orcid' | 'file-text'
 }
@@ -51,12 +52,12 @@ export const profile = {
   ] as EducationItem[],
 
   socials: [
-    { label: '邮箱', href: 'mailto:rui.li@kaust.edu.sa', icon: 'mail' },
-    { label: 'Scholar', href: 'https://scholar.google.com/citations?user=P6gAcSsAAAAJ&hl=zh-CN', icon: 'graduation-cap' },
-    { label: 'GitHub', href: 'https://github.com/arthurlirui', icon: 'github' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arthurlirui/', icon: 'linkedin' },
-    { label: 'ORCID', href: 'https://orcid.org/0000-0001-5332-2167', icon: 'orcid' },
-    { label: '简历 CV', href: '/uploads/resume.pdf', icon: 'file-text' },
+    { label: '邮箱', labelEn: 'Email', href: 'mailto:rui.li@kaust.edu.sa', icon: 'mail' },
+    { label: 'Scholar', labelEn: 'Scholar', href: 'https://scholar.google.com/citations?user=P6gAcSsAAAAJ&hl=zh-CN', icon: 'graduation-cap' },
+    { label: 'GitHub', labelEn: 'GitHub', href: 'https://github.com/arthurlirui', icon: 'github' },
+    { label: 'LinkedIn', labelEn: 'LinkedIn', href: 'https://www.linkedin.com/in/arthurlirui/', icon: 'linkedin' },
+    { label: 'ORCID', labelEn: 'ORCID', href: 'https://orcid.org/0000-0001-5332-2167', icon: 'orcid' },
+    { label: '简历 CV', labelEn: 'CV', href: '/uploads/resume.pdf', icon: 'file-text' },
   ] as SocialLink[],
 }
 
