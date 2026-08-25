@@ -14,9 +14,9 @@ const iconMap = {
   'file-text': FileText,
 }
 
-const bioEn = `Dr. Rui Li's research spans computer graphics, computer vision, and wireless communication, with a focus on high-speed 3D reconstruction, differentiable rendering, and real-time systems. He received his Ph.D. in Electrical and Computer Engineering from King Abdullah University of Science and Technology (KAUST) at the end of 2023, advised by Prof. Wolfgang Heidrich. Prior to that, he earned a Master's degree in Engineering from the University of Science and Technology of China (USTC) and a Bachelor's degree in Engineering from Xidian University. He has conducted research collaborations with institutions including the Hong Kong University of Science and Technology (HKUST), DJI, and SONY. His work has been published in flagship venues and journals including SIGGRAPH, SIGGRAPH Asia, ACM Trans. on Graphics (TOG), CVPR, ECCV, and ICCV, with over a dozen high-impact papers in total.
+const bioEn = `Dr. Rui Li's research spans computer graphics, computer vision, and wireless communication, with a focus on high-speed 3D reconstruction, differentiable rendering, and real-time systems. He received his Ph.D. in Electrical and Computer Engineering from King Abdullah University of Science and Technology (KAUST) in late 2023, under Prof. Wolfgang Heidrich. He also holds a Master's degree from the University of Science and Technology of China (USTC) and a Bachelor's degree from Xidian University. He has collaborated with HKUST, DJI, and SONY. His work has been published in leading venues including SIGGRAPH, SIGGRAPH Asia, ACM Transactions on Graphics, CVPR, ECCV, and ICCV.
 
-Dr. Li is currently an Assistant Researcher in the Mobile Communications Division of the Communications Department at Peng Cheng Laboratory (PCL), where he serves as a Ph.D. advisor for the lab. On the research side, Dr. Li participates as a key technical contributor in 3 major PCL research projects, leading the development of key technologies for holographic communication systems—including real-time 3D scene capture, reconstruction, transmission, and rendering—providing core technical support for building a new-generation communication testbed. The lab is equipped with 15 high-performance servers (RTX 5090, 5880, 4090, etc.), multi-camera event cameras, high-speed global-shutter cameras, RGBD cameras and other imaging devices, and—backed by the Peng Cheng Cloud Brain infrastructure—offers near-unlimited tokens for large models such as GLM and DeepSeek.`
+Dr. Li is currently an Assistant Researcher in the Mobile Communications Division at Peng Cheng Laboratory (PCL), where he also serves as a Ph.D. advisor. As a key technical contributor to three major PCL projects, he leads the development of core technologies for holographic communication systems, including real-time 3D capture, reconstruction, transmission, and rendering, providing essential support for a next-generation communication testbed. His lab is equipped with 15 high-performance servers, event cameras, high-speed global-shutter cameras, RGBD cameras, and other imaging systems, and benefits from near-unlimited large-model access via the Peng Cheng Cloud Brain.`
 
 const bioZh = `李睿博士，研究方向涵盖计算机图形学、计算机视觉和无线通信，专攻高速三维重建、可微渲染、实时系统领域。2023底年于阿卜杜拉国王科技大学（KAUST）电子与计算机工程系获博士学位，师从Prof. Wolfgang Heidrich教授；在此之前，他在中国科学技术大学获工学硕士学位，在西安电子科技大学获得工学学士学位。曾赴香港科技大学、大疆创新（DJI）、索尼（SONY）等机构开展科研合作。他的学术成果发表在SIGGRAPH、SIGGRAPH Asia、Trans. on Graphics (TOG)、CVPR、ECCV、ICCV等旗舰会议和期刊，总计发表高水平论文十余篇。
 
@@ -36,7 +36,7 @@ export default function HeroSection() {
         <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-slate-100 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-[880px] mx-auto px-6">
+      <div className="max-w-[1100px] mx-auto px-6">
         {/* Avatar + name + title */}
         <div className="text-center">
           <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-accent-subtle border-4 border-white shadow-lg flex items-center justify-center overflow-hidden">
