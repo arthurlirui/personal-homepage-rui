@@ -3,7 +3,6 @@
 import { profile } from '@/data/profile'
 import { useLang, pick } from '@/components/context/LanguageContext'
 import { Mail, GraduationCap, Code, Link2, FileText, User } from 'lucide-react'
-import Link from 'next/link'
 
 const iconMap = {
   mail: Mail,
@@ -87,21 +86,6 @@ export default function HeroSection() {
             ))}
           </div>
 
-          {/* CTA buttons inside the About card */}
-          <div className="mt-6 flex justify-start gap-4">
-            <Link
-              href="/research"
-              className="px-5 py-2.5 bg-accent text-white rounded-lg text-sm font-medium hover:bg-accent-light transition-colors"
-            >
-              {lang === 'zh' ? '研究方向' : 'Research'}
-            </Link>
-            <Link
-              href="/startup"
-              className="px-5 py-2.5 border border-slate-300 text-slate-700 rounded-lg text-sm font-medium hover:border-accent hover:text-accent transition-colors"
-            >
-              {lang === 'zh' ? '创业项目' : 'Startup'}
-            </Link>
-          </div>
         </div>
       </div>
     </section>
