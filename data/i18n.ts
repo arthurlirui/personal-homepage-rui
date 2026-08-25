@@ -131,7 +131,7 @@ const en: UIStrings = {
   },
   researchPreview: {
     title: 'Research Directions',
-    subtitle: 'Three core directions: from theory to systems, from imaging to reconstruction',
+    subtitle: 'From 3D reconstruction and computational imaging to real-time holographic communication',
     viewAll: 'View all research directions',
   },
   paperHighlights: {
@@ -158,7 +158,7 @@ const en: UIStrings = {
   },
   researchPage: {
     title: 'Research Directions',
-    subtitle: 'Three core directions connecting imaging, reconstruction and inverse problems',
+    subtitle: 'Three directions connecting 3D reconstruction, computational imaging, and real-time holographic communication',
     relatedPubs: 'Related Publications',
     relatedProjects: 'Related Projects',
     viewAllPubs: 'View all publications',
@@ -257,7 +257,7 @@ const zh: UIStrings = {
   },
   researchPreview: {
     title: '研究方向',
-    subtitle: '三大核心方向：从理论到系统，从成像到重建',
+    subtitle: '从三维重建与计算成像到实时全息通信',
     viewAll: '查看全部研究方向',
   },
   paperHighlights: {
@@ -284,7 +284,7 @@ const zh: UIStrings = {
   },
   researchPage: {
     title: '研究方向',
-    subtitle: '三大核心方向，连接成像、重建与反问题求解',
+    subtitle: '三个方向打通三维重建、计算成像与实时全息通信',
     relatedPubs: '相关论文',
     relatedProjects: '相关项目',
     viewAllPubs: '查看全部论文',

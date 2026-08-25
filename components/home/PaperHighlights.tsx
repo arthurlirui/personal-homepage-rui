@@ -7,10 +7,17 @@ import { SectionTitle, LinkButton, Badge } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
 import { FileText, ExternalLink } from 'lucide-react'
 
+// Flagship venues featured in the "Selected Papers" section, ordered newest-first.
+const FLAGSHIP_VENUES = ['ECCV', 'SIGGRAPH', 'SIGGRAPH Asia', 'ICCV']
+
 export default function PaperHighlights() {
   const { lang } = useLang()
   const t = ui(lang)
-  const featured = publications.filter((p) => p.featured).slice(0, 5)
+  const featured = publications
+    .filter((p) => FLAGSHIP_VENUES.some((v) => p.venueShort.includes(v)))
+    .sort((a, b) => b.year - a.year)
+    .slice(0, 5)
+
   return (
     <section className="section-container bg-surface-muted/50">
       <SectionTitle subtitle={t.paperHighlights.subtitle}>{t.paperHighlights.title}</SectionTitle>
