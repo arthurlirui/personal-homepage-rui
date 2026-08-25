@@ -62,19 +62,6 @@ export default function HeroSection() {
           })}
         </div>
 
-        {profile.researchInterests.length > 0 && (
-          <div className="mt-8 flex flex-wrap justify-center gap-2">
-            {profile.researchInterests.map((interest) => (
-              <span
-                key={interest}
-                className="px-3 py-1 bg-accent-subtle text-accent text-sm font-medium rounded-full"
-              >
-                {interest}
-              </span>
-            ))}
-          </div>
-        )}
-
         <div className="mt-8 flex justify-center gap-4">
           <Link
             href="/research"

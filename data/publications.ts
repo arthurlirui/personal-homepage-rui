@@ -23,6 +23,36 @@ const me = 'Rui Li'
 
 export const publications: Publication[] = [
   {
+    id: 'adaptive-diff-grids-cryo-et',
+    title: 'Adaptive differentiable grids for cryo-electron tomography reconstruction and denoising',
+    authors: ['Y. Wang', 'R. Idoughi', 'D. Rückert', me, 'W. Heidrich'],
+    venue: 'Bioinformatics Advances',
+    venueShort: 'Bioinform. Adv. 2023',
+    year: 2023,
+    type: 'journal',
+    featured: true,
+  },
+  {
+    id: 'haptic-twin-telecooperation',
+    title: 'Enhancing telecooperation through haptic twin for internet of robotic things: Implementation and challenges',
+    authors: ['M. Huang', 'R. Feng', 'L. Zou', me, 'J. Xie'],
+    venue: 'IEEE Internet of Things Journal',
+    venueShort: 'IOTJ 2024',
+    year: 2024,
+    type: 'journal',
+    featured: true,
+  },
+  {
+    id: 'cwc-dnerf',
+    title: 'CWC-DNERF: Compact Dynamic Neural Radiance Field VIA Discrete Wavelet Transform And Learnable Codebooks',
+    authors: ['Yaojian Xu', me, 'Q. Zhang', 'L. Zou', 'Q. Liu', 'Xu Wang'],
+    venue: 'IEEE International Conference on Image Processing (ICIP)',
+    venueShort: 'ICIP 2025',
+    year: 2025,
+    type: 'conference',
+    featured: true,
+  },
+  {
     id: 'point-ladder-tuning',
     title: 'Point Ladder Tuning: Parameter-Efficient Hierarchical Adaptation for 3D Point Cloud Understanding',
     authors: ['Junlin Chang', 'Longhao Zou', me],
