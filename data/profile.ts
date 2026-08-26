@@ -23,8 +23,9 @@ export const profile = {
   affiliation: 'Peng Cheng Laboratory, Shenzhen',
   affiliationZh: '鹏城实验室 · 深圳',
   location: 'Shenzhen, China',
-  email: 'rui.li@kaust.edu.sa',
-  emailAlt: 'lir01@pcl.ac.cn',
+  email: 'lir01@pcl.ac.cn',
+  emailAlt: 'arthurlirui@gmail.com',
+  emailAlt2: 'arthurlirui@163.com',
   avatar: '/avatar.png',
   resumeEn: '/uploads/resume.pdf',
   resumeZh: '/uploads/resume_chinese.pdf',
@@ -52,7 +53,7 @@ export const profile = {
   ] as EducationItem[],
 
   socials: [
-    { label: '邮箱', labelEn: 'Email', href: 'mailto:rui.li@kaust.edu.sa', icon: 'mail' },
+    { label: '邮箱', labelEn: 'Email', href: 'mailto:lir01@pcl.ac.cn', icon: 'mail' },
     { label: 'Scholar', labelEn: 'Scholar', href: 'https://scholar.google.com/citations?user=P6gAcSsAAAAJ&hl=zh-CN', icon: 'graduation-cap' },
     { label: 'GitHub', labelEn: 'GitHub', href: 'https://github.com/arthurlirui', icon: 'github' },
     { label: 'LinkedIn', labelEn: 'LinkedIn', href: 'https://www.linkedin.com/in/arthurlirui/', icon: 'linkedin' },

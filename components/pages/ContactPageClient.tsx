@@ -36,11 +36,17 @@ export default function ContactPageClient() {
             <a href={`mailto:${profile.email}`} className="flex items-center gap-3 text-slate-700 hover:text-accent transition-colors">
               <Mail size={18} className="text-accent" />
               <span className="text-sm font-medium">{profile.email}</span>
+              <Badge variant="default">PCL</Badge>
             </a>
             <a href={`mailto:${profile.emailAlt}`} className="flex items-center gap-3 text-slate-700 hover:text-accent transition-colors">
               <Mail size={18} className="text-accent" />
               <span className="text-sm font-medium">{profile.emailAlt}</span>
-              <Badge variant="default">PCL</Badge>
+              <Badge variant="default">Gmail</Badge>
+            </a>
+            <a href={`mailto:${profile.emailAlt2}`} className="flex items-center gap-3 text-slate-700 hover:text-accent transition-colors">
+              <Mail size={18} className="text-accent" />
+              <span className="text-sm font-medium">{profile.emailAlt2}</span>
+              <Badge variant="default">163</Badge>
             </a>
           </div>
 
@@ -94,8 +100,8 @@ export default function ContactPageClient() {
         </h3>
         <p className="text-sm text-slate-600 leading-relaxed">
           {t.contactPage.admissionsBody}{' '}
-          <a href={`mailto:${profile.emailAlt}`} className="text-accent hover:text-accent-light font-medium">
-            {profile.emailAlt}
+          <a href={`mailto:${profile.email}`} className="text-accent hover:text-accent-light font-medium">
+            {profile.email}
           </a>
           {lang === 'zh' ? '（鹏城实验室宽带通信研究所）。' : ' (Peng Cheng Laboratory, Broadband Communication Research Institute).'}
         </p>
