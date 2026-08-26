@@ -10,6 +10,7 @@ const iconMap = {
   github: Code,
   linkedin: Link2,
   orcid: Link2,
+  openreview: Link2,
   'file-text': FileText,
 }
 

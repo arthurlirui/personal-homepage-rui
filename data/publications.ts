@@ -62,7 +62,7 @@ export const publications: Publication[] = [
   {
     id: 'cwc-dnerf',
     title: 'CWC-DNERF: Compact Dynamic Neural Radiance Field VIA Discrete Wavelet Transform And Learnable Codebooks',
-    authors: ['Yaojian Xu', me, 'Q. Zhang', 'L. Zou', 'Q. Liu', 'Xu Wang'],
+    authors: ['Yaojian Xu', me+'†', 'Q. Zhang', 'L. Zou', 'Q. Liu', 'Xu Wang'],
     venue: 'IEEE International Conference on Image Processing (ICIP)',
     venueShort: 'ICIP 2025',
     year: 2025,
@@ -75,7 +75,7 @@ export const publications: Publication[] = [
   {
     id: 'point-ladder-tuning',
     title: 'Point Ladder Tuning: Parameter-Efficient Hierarchical Adaptation for 3D Point Cloud Understanding',
-    authors: ['Junlin Chang', 'Longhao Zou', me],
+    authors: ['Junlin Chang', 'Longhao Zou', me+'†'],
     venue: 'European Conference on Computer Vision (ECCV)',
     venueShort: 'ECCV 2026',
     year: 2026,
@@ -88,7 +88,7 @@ export const publications: Publication[] = [
   {
     id: 'geometry-adaptive-polyhedron',
     title: 'Geometry-Adaptive 3D Convex Polyhedron for Tomographic Reconstruction',
-    authors: ['Yaojian Xu', me, 'Zhiye Tang', 'Longhao Zou', 'Xu Wang'],
+    authors: ['Yaojian Xu', me+'†', 'Zhiye Tang', 'Longhao Zou', 'Xu Wang'],
     venue: 'IEEE International Conference on Multimedia and Expo (ICME)',
     venueShort: 'ICME 2026',
     year: 2026,
@@ -117,7 +117,7 @@ export const publications: Publication[] = [
   {
     id: 'neural-adaptive-scene-tracing',
     title: 'Neural Adaptive Scene Tracing',
-    authors: [me, 'Darius Rückert', 'Yuanhao Wang', 'Ramzi Idoughi', 'Wolfgang Heidrich'],
+    authors: [me+'*', 'Darius Rückert', 'Yuanhao Wang', 'Ramzi Idoughi', 'Wolfgang Heidrich'],
     venue: 'Symposium on Vision, Modeling, and Visualization (VMV)',
     venueShort: 'VMV 2022',
     year: 2022,
@@ -130,7 +130,7 @@ export const publications: Publication[] = [
   {
     id: 'shape-reflectance-diff-rendering',
     title: 'Shape and Reflectance Reconstruction in Uncontrolled Environments by Differentiable Rendering',
-    authors: [me, 'Guangmin Zang', 'Miao Qi', 'Wolfgang Heidrich'],
+    authors: [me+'*', 'Guangmin Zang', 'Miao Qi', 'Wolfgang Heidrich'],
     venue: 'arXiv:2110.12975',
     venueShort: 'Preprint 2022',
     year: 2022,
@@ -161,7 +161,7 @@ export const publications: Publication[] = [
   {
     id: 'reflection-separation',
     title: 'Reflection Separation via Multi-bounce Polarization State Tracing',
-    authors: [me + '†', 'Simeng Qiu†', 'Guangming Zang', 'Wolfgang Heidrich'],
+    authors: [me+'*', 'Simeng Qiu*', 'Guangming Zang', 'Wolfgang Heidrich'],
     venue: 'European Conference on Computer Vision (ECCV)',
     venueShort: 'ECCV 2020',
     year: 2020,
@@ -177,7 +177,7 @@ export const publications: Publication[] = [
   {
     id: 'light-field-segmentation',
     title: 'Hierarchical and View-invariant Light Field Segmentation by Maximizing Entropy Rate on 4D Ray Graphs',
-    authors: [me, 'Wolfgang Heidrich'],
+    authors: [me+'*', 'Wolfgang Heidrich'],
     venue: 'ACM Transactions on Graphics (SIGGRAPH Asia)',
     venueShort: 'SIGGRAPH Asia 2019',
     year: 2019,
@@ -193,7 +193,7 @@ export const publications: Publication[] = [
   {
     id: 'uav-tracking',
     title: 'Monocular Long-term Target Following on UAVs',
-    authors: [me, 'Minjian Pang', 'Cong Zhao', 'Guyue Zhou', 'Lu Fang'],
+    authors: [me+'*', 'Minjian Pang', 'Cong Zhao', 'Guyue Zhou', 'Lu Fang'],
     venue: 'CVPR Workshop on Embedded Vision',
     venueShort: 'CVPRW 2016',
     year: 2016,
@@ -209,7 +209,7 @@ export const publications: Publication[] = [
   {
     id: 'cluster-sensing-superpixel',
     title: 'Cluster Sensing Superpixel and Grouping',
-    authors: [me, 'Lu Fang'],
+    authors: [me+'*', 'Lu Fang'],
     venue: 'CVPR Workshop',
     venueShort: 'CVPRW 2016',
     year: 2016,

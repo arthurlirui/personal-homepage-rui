@@ -70,7 +70,7 @@ export default function StartupHighlight() {
                       </a>
                     )}
                     <Link
-                      href="/startup"
+                      href="/projects"
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-accent transition-colors group"
                     >
                       {t.startupHighlight.learnMore}

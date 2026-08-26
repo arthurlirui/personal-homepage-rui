@@ -11,7 +11,7 @@ export interface SocialLink {
   label: string
   labelEn: string
   href: string
-  icon: 'mail' | 'graduation-cap' | 'github' | 'linkedin' | 'orcid' | 'file-text'
+  icon: 'mail' | 'graduation-cap' | 'github' | 'linkedin' | 'orcid' | 'file-text' | 'openreview'
 }
 
 export const profile = {
@@ -57,6 +57,7 @@ export const profile = {
     { label: 'GitHub', labelEn: 'GitHub', href: 'https://github.com/arthurlirui', icon: 'github' },
     { label: 'LinkedIn', labelEn: 'LinkedIn', href: 'https://www.linkedin.com/in/arthurlirui/', icon: 'linkedin' },
     { label: 'ORCID', labelEn: 'ORCID', href: 'https://orcid.org/0000-0001-5332-2167', icon: 'orcid' },
+    { label: 'OpenReview', labelEn: 'OpenReview', href: 'https://openreview.net/profile?id=~Rui_Li8', icon: 'openreview' },
     { label: '简历 CV', labelEn: 'CV', href: '/uploads/resume.pdf', icon: 'file-text' },
   ] as SocialLink[],
 }

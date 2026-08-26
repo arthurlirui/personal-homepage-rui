@@ -23,10 +23,8 @@ export default function Header() {
 
   const navItems = [
     { href: '/', label: t.nav.home },
-    { href: '/research', label: t.nav.research },
     { href: '/publications', label: t.nav.publications },
     { href: '/projects', label: t.nav.projects },
-    { href: '/startup', label: t.nav.startup },
     { href: '/blog', label: t.nav.blog },
     { href: '/courses', label: t.nav.courses },
     { href: '/experience', label: t.nav.experience },
