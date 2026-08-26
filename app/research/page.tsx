@@ -1,7 +1,5 @@
-import ResearchPageClient from '@/components/pages/ResearchPageClient'
-
-export const metadata = { title: 'Research · Rui Li' }
+import { redirect } from 'next/navigation'
 
 export default function ResearchPage() {
-  return <ResearchPageClient />
+  redirect('/projects')
 }

@@ -67,48 +67,20 @@ export default function GithubContributions() {
   useEffect(() => {
     async function fetchContributions() {
       try {
-        const [eventsRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${GITHUB_USER}/events/public?per_page=100`),
-          fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=pushed&per_page=100`),
-        ])
-
-        const counts: Record<string, number> = {}
-
-        // Parse events for PushEvent commit dates
-        if (eventsRes.ok) {
-          const events = await eventsRes.json()
-          for (const ev of events) {
-            if (ev.type === 'PushEvent') {
-              const date = ev.created_at.slice(0, 10)
-              const commitCount = ev.payload?.size || 1
-              counts[date] = (counts[date] || 0) + commitCount
-            }
-          }
+        // Fetch from our own API route (server-side proxy to GitHub)
+        const res = await fetch('/api/github-contributions')
+        if (!res.ok) {
+          setError(true)
+          setLoading(false)
+          return
         }
+        const data = await res.json()
+        const counts: Record<string, number> = data.counts || {}
 
-        // Parse repos for pushed_at as supplementary activity signals
-        if (reposRes.ok) {
-          const repos = await reposRes.json()
-          for (const repo of repos) {
-            if (repo.pushed_at) {
-              const date = repo.pushed_at.slice(0, 10)
-              // Only count if not already captured from events
-              if (!counts[date]) {
-                counts[date] = (counts[date] || 0) + 1
-              }
-            }
-          }
-        }
-
-        // Check if we got any data at all
         if (Object.keys(counts).length === 0) {
-          // If rate-limited, use repos pushed_at dates we can get from the events we have
-          const anyData = eventsRes.ok || reposRes.ok
-          if (!anyData) {
-            setError(true)
-            setLoading(false)
-            return
-          }
+          setError(true)
+          setLoading(false)
+          return
         }
 
         const grid = buildGrid(counts)

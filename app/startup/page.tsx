@@ -1,7 +1,5 @@
-import StartupPageClient from '@/components/pages/StartupPageClient'
-
-export const metadata = { title: 'Projects · Rui Li' }
+import { redirect } from 'next/navigation'
 
 export default function StartupPage() {
-  return <StartupPageClient />
+  redirect('/projects')
 }

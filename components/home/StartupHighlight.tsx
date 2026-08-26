@@ -106,7 +106,7 @@ export default function StartupHighlight() {
         })}
       </div>
       <div className="mt-8">
-        <LinkButton href="/startup">{t.startupHighlight.viewAll}</LinkButton>
+        <LinkButton href="/projects">{t.startupHighlight.viewAll}</LinkButton>
       </div>
     </section>
   )
