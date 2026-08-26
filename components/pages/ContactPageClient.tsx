@@ -4,15 +4,16 @@ import { profile } from '@/data/profile'
 import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { SectionTitle, Badge } from '@/components/ui'
-import { Mail, GraduationCap, Code, Link2, FileText, MapPin } from 'lucide-react'
+import { Mail, FileText, MapPin, GraduationCap } from 'lucide-react'
+import { ScholarIcon, GitHubIcon, LinkedInIcon, OrcidIcon, OpenReviewIcon } from '@/components/ui/BrandIcons'
 
-const iconMap = {
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   mail: Mail,
-  'graduation-cap': GraduationCap,
-  github: Code,
-  linkedin: Link2,
-  orcid: Link2,
-  openreview: Link2,
+  'graduation-cap': ScholarIcon,
+  github: GitHubIcon,
+  linkedin: LinkedInIcon,
+  orcid: OrcidIcon,
+  openreview: OpenReviewIcon,
   'file-text': FileText,
 }
 
