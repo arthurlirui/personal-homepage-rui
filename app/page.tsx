@@ -3,6 +3,7 @@ import ResearchPreview from '@/components/home/ResearchPreview'
 import PaperHighlights from '@/components/home/PaperHighlights'
 import LatestNews from '@/components/home/LatestNews'
 import StartupHighlight from '@/components/home/StartupHighlight'
+import GithubContributions from '@/components/home/GithubContributions'
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <PaperHighlights />
       <LatestNews />
       <StartupHighlight />
+      <GithubContributions />
     </>
   )
 }

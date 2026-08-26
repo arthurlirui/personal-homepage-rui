@@ -1,4 +1,13 @@
 // 论文数据 — 来源: resume-academic/content/publication/**
+//
+// 编辑指南：
+//   teaser: 论文配图/GIF 动图路径，放在 public/uploads/teasers/ 目录下，如 '/uploads/teasers/neat.gif'
+//           留空则不显示图片
+//   pdf:    论文 PDF 链接，可填本地路径 '/uploads/papers/xxx.pdf' 或外部链接
+//   code:   GitHub 代码仓库链接，如 'https://github.com/arthurlirui/xxx'
+//   doi:    DOI 链接
+//
+// 新增论文时复制一个条目，修改各字段即可。
 
 export type PubType = 'journal' | 'conference' | 'preprint'
 
@@ -14,6 +23,8 @@ export interface Publication {
   abstract?: string
   doi?: string
   pdf?: string
+  code?: string
+  teaser?: string // teaser image or GIF path, e.g. '/uploads/teasers/neat.gif'
   projectSlug?: string
   image?: string
 }
@@ -31,6 +42,9 @@ export const publications: Publication[] = [
     year: 2023,
     type: 'journal',
     featured: true,
+    // teaser: '/uploads/teasers/adaptive-diff-grids-cryo-et.gif',
+    // pdf: '/uploads/papers/adaptive-diff-grids-cryo-et.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'haptic-twin-telecooperation',
@@ -41,6 +55,9 @@ export const publications: Publication[] = [
     year: 2024,
     type: 'journal',
     featured: true,
+    // teaser: '/uploads/teasers/haptic-twin-telecooperation.gif',
+    // pdf: '/uploads/papers/haptic-twin-telecooperation.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'cwc-dnerf',
@@ -51,6 +68,9 @@ export const publications: Publication[] = [
     year: 2025,
     type: 'conference',
     featured: true,
+    // teaser: '/uploads/teasers/cwc-dnerf.gif',
+    // pdf: '/uploads/papers/cwc-dnerf.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'point-ladder-tuning',
@@ -61,6 +81,9 @@ export const publications: Publication[] = [
     year: 2026,
     type: 'conference',
     featured: true,
+    // teaser: '/uploads/teasers/point-ladder-tuning.gif',
+    // pdf: '/uploads/papers/point-ladder-tuning.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'geometry-adaptive-polyhedron',
@@ -71,6 +94,9 @@ export const publications: Publication[] = [
     year: 2026,
     type: 'conference',
     featured: true,
+    // teaser: '/uploads/teasers/geometry-adaptive-polyhedron.gif',
+    // pdf: '/uploads/papers/geometry-adaptive-polyhedron.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'neat',
@@ -85,6 +111,8 @@ export const publications: Publication[] = [
       'NeAT is a neural adaptive tomography method that reconstructs 3D volumes from sparse and limited-angle CT projections using a learned, adaptive sampling strategy within a differentiable rendering framework.',
     pdf: '/uploads/resume.pdf',
     image: '/avatar.png',
+    // teaser: '/uploads/teasers/neat.gif',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'neural-adaptive-scene-tracing',
@@ -95,6 +123,9 @@ export const publications: Publication[] = [
     year: 2022,
     type: 'conference',
     featured: true,
+    // teaser: '/uploads/teasers/neural-adaptive-scene-tracing.gif',
+    // pdf: '/uploads/papers/neural-adaptive-scene-tracing.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'shape-reflectance-diff-rendering',
@@ -108,6 +139,9 @@ export const publications: Publication[] = [
     doi: 'https://arxiv.org/abs/2110.12975',
     abstract:
       'Simultaneous reconstruction of geometry and reflectance in uncontrolled environments from multi-view photography using hand-held cameras. Builds a virtual scene in a differentiable rendering system, optimized by alternating and stochastic photometric objectives, generating photo-realistic novel views. Superior to SOTA in novel view synthesis.',
+    // teaser: '/uploads/teasers/shape-reflectance-diff-rendering.gif',
+    // pdf: '/uploads/papers/shape-reflectance-diff-rendering.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'intratomo',
@@ -120,6 +154,9 @@ export const publications: Publication[] = [
     featured: true,
     abstract:
       'Combines learning-based and model-based approaches for ill-posed CT inverse problems. Two modules: sinogram prediction (density field as continuous differentiable NN function, self-supervised from incomplete/degraded sinogram) and geometry refinement (local & non-local geometrical priors), applied iteratively. Outperforms on limited-angle tomography (45°), sparse view (as few as 8 views), super-resolution (8×).',
+    // teaser: '/uploads/teasers/intratomo.gif',
+    // pdf: '/uploads/papers/intratomo.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'reflection-separation',
@@ -133,6 +170,9 @@ export const publications: Publication[] = [
     doi: 'https://doi.org/10.1007/978-3-030-58601-0_46',
     abstract:
       'Generalizes reflection removal to real-world complex light interactions. Learning framework for supervised reflection separation with a polarization-guided ray-tracing model. Uses a polarization sensor capturing 4 linearly polarized photos simultaneously. A new polarization-guided image formation model plus supervised learning for the ray-tracing model yields unprecedented reconstruction quality on real and synthetic data. († equal contribution)',
+    // teaser: '/uploads/teasers/reflection-separation.gif',
+    // pdf: '/uploads/papers/reflection-separation.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'light-field-segmentation',
@@ -146,6 +186,9 @@ export const publications: Publication[] = [
     doi: 'https://doi.org/10.1145/3355089.3356521',
     abstract:
       'A new light field segmentation method respecting texture appearance, depth consistency, and occlusion. Creates well-shaped segments robust to viewpoint changes; hierarchical — a single optimization yields a whole hierarchy of segmentations. Uses a submodular objective function optimized greedily; introduces a "disjoint tree" data structure for efficient submodular optimization on very large graphs.',
+    // teaser: '/uploads/teasers/light-field-segmentation.gif',
+    // pdf: '/uploads/papers/light-field-segmentation.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'uav-tracking',
@@ -159,6 +202,9 @@ export const publications: Publication[] = [
     doi: 'https://10.1109/CVPRW.2016.11',
     abstract:
       'Long-term visual tracking on UAVs. Exploits correlation between a frequency tracker and a spatial detector; novel FAST algorithm. Robustness (frequency tracker → spatial detector covers temporal variance/invariance) plus efficiency (coarse-to-fine redetection, no extra classifier / exhaustive search). Implemented on a quadrotor for indoor/outdoor real-time automatic smooth long-term target following.',
+    // teaser: '/uploads/teasers/uav-tracking.gif',
+    // pdf: '/uploads/papers/uav-tracking.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
   {
     id: 'cluster-sensing-superpixel',
@@ -171,6 +217,9 @@ export const publications: Publication[] = [
     featured: true,
     abstract:
       'Cluster Sensing Superpixel (CSS) method. Cluster centers have representativeness (local max pixel density) and isolation; CSS identifies centers via pixel density. Integrates superpixel cues into a bipartite graph segmentation framework, applied to microscopy image segmentation. ~5× faster than SOTA with comparable performance.',
+    // teaser: '/uploads/teasers/cluster-sensing-superpixel.gif',
+    // pdf: '/uploads/papers/cluster-sensing-superpixel.pdf',
+    // code: 'https://github.com/arthurlirui/xxx',
   },
 ]
 

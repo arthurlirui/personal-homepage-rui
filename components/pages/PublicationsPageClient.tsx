@@ -5,7 +5,7 @@ import { useLang } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { SectionTitle, Badge } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
-import { FileText, ExternalLink } from 'lucide-react'
+import { FileText, ExternalLink, Code2 } from 'lucide-react'
 import Link from 'next/link'
 
 export default function PublicationsPageClient() {
@@ -57,33 +57,52 @@ export default function PublicationsPageClient() {
                 .filter((p) => p.year === year)
                 .map((p, i) => (
                   <ScrollReveal key={p.id} delay={i * 0.05}>
-                    <article className="card p-5">
-                      <div className="flex items-start gap-3">
-                        <div className="mt-0.5 w-9 h-9 shrink-0 rounded-lg bg-accent-subtle text-accent flex items-center justify-center">
-                          <FileText size={18} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-serif font-semibold text-slate-900 leading-snug">{p.title}</h4>
-                          <p className="mt-1 text-sm text-slate-600">{p.authors.join(', ')}</p>
-                          <div className="mt-2 flex flex-wrap items-center gap-2">
-                            <Badge variant="accent">{p.venueShort}</Badge>
-                            <Badge variant="default">{typeLabel[p.type]}</Badge>
-                            {p.featured && <Badge variant="outline">{t.publicationsPage.featured}</Badge>}
+                    <article className="card overflow-hidden">
+                      <div className="flex flex-col sm:flex-row">
+                        {/* Teaser image */}
+                        {p.teaser && (
+                          <div className="sm:w-64 shrink-0 bg-surface-muted border-b sm:border-b-0 sm:border-r border-slate-100">
+                            <img
+                              src={p.teaser}
+                              alt={p.title}
+                              className="w-full h-48 sm:h-full object-cover"
+                            />
                           </div>
-                          {p.abstract && (
-                            <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-3">{p.abstract}</p>
-                          )}
-                          <div className="mt-3 flex items-center gap-4">
-                            {p.doi && (
-                              <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent-light">
-                                DOI <ExternalLink size={11} />
-                              </a>
-                            )}
-                            {p.pdf && (
-                              <Link href={p.pdf} className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent-light">
-                                PDF <ExternalLink size={11} />
-                              </Link>
-                            )}
+                        )}
+                        <div className="flex-1 p-5">
+                          <div className="flex items-start gap-3">
+                            <div className="mt-0.5 w-9 h-9 shrink-0 rounded-lg bg-accent-subtle text-accent flex items-center justify-center">
+                              <FileText size={18} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-serif font-semibold text-slate-900 leading-snug">{p.title}</h4>
+                              <p className="mt-1 text-sm text-slate-600">{p.authors.join(', ')}</p>
+                              <div className="mt-2 flex flex-wrap items-center gap-2">
+                                <Badge variant="accent">{p.venueShort}</Badge>
+                                <Badge variant="default">{typeLabel[p.type]}</Badge>
+                                {p.featured && <Badge variant="outline">{t.publicationsPage.featured}</Badge>}
+                              </div>
+                              {p.abstract && (
+                                <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-3">{p.abstract}</p>
+                              )}
+                              <div className="mt-3 flex items-center gap-4">
+                                {p.doi && (
+                                  <a href={p.doi} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent-light">
+                                    DOI <ExternalLink size={11} />
+                                  </a>
+                                )}
+                                {p.pdf && (
+                                  <Link href={p.pdf} className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent-light">
+                                    PDF <ExternalLink size={11} />
+                                  </Link>
+                                )}
+                                {p.code && (
+                                  <a href={p.code} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent-light">
+                                    <Code2 size={11} /> {t.publicationsPage.code}
+                                  </a>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

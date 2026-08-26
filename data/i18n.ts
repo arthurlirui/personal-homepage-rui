@@ -10,6 +10,8 @@ export interface UIStrings {
     publications: string
     projects: string
     startup: string
+    blog: string
+    courses: string
     experience: string
     contact: string
   }
@@ -65,6 +67,7 @@ export interface UIStrings {
     featured: string
     papers: (n: number) => string
     viewScholar: string
+    code: string
   }
   projectsPage: {
     title: string
@@ -100,6 +103,20 @@ export interface UIStrings {
     viewStartup: string
     viewPubs: string
   }
+  blogPage: {
+    title: string
+    subtitle: string
+    comingSoon: string
+    readTime: string
+  }
+  coursesPage: {
+    title: string
+    subtitle: string
+    comingSoon: string
+    level: string
+    duration: string
+    topics: string
+  }
   contactPage: {
     title: string
     subtitle: string
@@ -121,13 +138,15 @@ const en: UIStrings = {
     research: 'Research',
     publications: 'Publications',
     projects: 'Projects',
-    startup: 'Startup',
+    startup: 'Projects',
+    blog: 'Blog',
+    courses: 'Courses',
     experience: 'Experience',
     contact: 'Contact',
   },
   hero: {
     ctaResearch: 'Research',
-    ctaStartup: 'Startup',
+    ctaStartup: 'Projects',
   },
   researchPreview: {
     title: 'Research Directions',
@@ -140,13 +159,13 @@ const en: UIStrings = {
     viewAll: 'View all publications',
   },
   startupHighlight: {
-    title: 'Startup Projects',
-    subtitle: 'From research to product · AI quantitative trading and blockchain digital art',
+    title: 'Independent Projects',
+    subtitle: 'From research to creative tools · AI systems, digital art, and content studios',
     statusActive: 'Active',
     statusArchived: 'Archived',
     website: 'Website',
     learnMore: 'Learn more',
-    viewAll: 'View startup details',
+    viewAll: 'View all projects',
   },
   latestNews: {
     title: 'Latest News',
@@ -178,6 +197,7 @@ const en: UIStrings = {
     featured: '★ Featured',
     papers: (n) => `${n} papers`,
     viewScholar: 'View full citations on Google Scholar',
+    code: 'Code',
   },
   projectsPage: {
     title: 'Research Projects',
@@ -187,33 +207,35 @@ const en: UIStrings = {
     viewResearch: 'View research directions',
   },
   startupPage: {
-    badge: 'Startup · Entrepreneurship',
-    heroTitle: 'Turning Computational Imaging & AI into Products',
+    badge: 'Independent Projects',
+    heroTitle: 'Turning Research into Creative Tools & Products',
     heroDesc:
-      'From research to entrepreneurship — building products in quantitative trading and digital art with neural rendering, real-time AI systems and blockchain.',
-    productsTitle: 'Startup Projects',
-    productsSubtitle: 'Two ventures covering AI quantitative trading and blockchain digital art',
+      'From research to independent projects — building AI systems, digital art platforms, and content studios with neural rendering, real-time AI, and generative models.',
+    productsTitle: 'Independent Projects',
+    productsSubtitle: 'Six projects spanning AI systems, digital art, and content creation studios',
     foundedIn: 'Founded',
     coreFeatures: 'Core Features',
     techStack: 'Tech Stack',
     visitSite: 'Visit website',
     capabilitiesTitle: 'Technical Capabilities',
     capabilitiesSubtitle: 'Translating research capability into product capability',
-    timelineTitle: 'Startup Timeline',
-    timelineSubtitle: 'Entrepreneurship milestones',
+    timelineTitle: 'Project Timeline',
+    timelineSubtitle: 'Project milestones',
     viewFullCv: 'View full CV',
     contactCollab: 'Contact for collaboration',
     capabilities: [
       { icon: 'cpu', title: 'AI Systems Engineering', desc: 'Real-time deep learning inference, low-latency signal pipelines, mainstream framework integration', tag: 'Real-time AI' },
       { icon: 'box', title: '3D Reconstruction & Rendering', desc: 'Multiview capture, neural rendering, photo-realistic 3D asset generation', tag: 'Neural Rendering' },
-      { icon: 'link', title: 'Blockchain / NFT', desc: 'On-chain minting, real-scene data on-chain, end-to-end digital collectibles', tag: 'Web3' },
-      { icon: 'rocket', title: 'Productization', desc: 'From research prototype to production system, crypto exchange integration', tag: 'Product' },
+      { icon: 'sparkles', title: 'AIGC & Content Creation', desc: 'Multi-modal AI generation for images, 3D, video, and interactive storytelling', tag: 'AIGC' },
+      { icon: 'rocket', title: 'Productization', desc: 'From research prototype to production system and creative platform', tag: 'Product' },
     ],
     timeline: [
-      { date: '2018-05', title: 'Founded SigTrading', desc: 'Launched real-time AI quantitative trading system R&D for crypto exchanges' },
-      { date: '2021-03', title: 'Founded Capmake', desc: 'Explored blockchain digital art, turning real-scene data into on-chain collectibles' },
-      { date: '2021+', title: '3D NFT Product Line', desc: 'Fused multiview reconstruction capability within SigTrading to generate real-scene 3D NFTs' },
-      { date: 'Present', title: 'Ongoing Operations', desc: 'SigTrading continues to operate, connecting AI, finance and 3D vision' },
+      { date: '2018-05', title: 'SigTrading', desc: 'Launched real-time AI quantitative trading system for crypto exchanges' },
+      { date: '2021-03', title: 'Capmake', desc: 'Explored blockchain digital art, turning real-scene data into on-chain collectibles' },
+      { date: '2024-06', title: 'AIGC Studio', desc: 'Launched umbrella AIGC platform with Paper Studio, Story Studio, and Cosmic Studio as sub-projects' },
+      { date: '2024-06', title: 'Paper Studio', desc: 'Built interactive visualization toolkit for academic papers (AIGC Studio sub-project)' },
+      { date: '2024-09', title: 'Story Studio', desc: 'Launched AI-assisted narrative and storytelling creation platform (AIGC Studio sub-project)' },
+      { date: '2025-01', title: 'Cosmic Studio', desc: 'Developed AI-powered manga and comic generation platform (AIGC Studio sub-project)' },
     ],
   },
   experiencePage: {
@@ -221,13 +243,27 @@ const en: UIStrings = {
     subtitle: 'Education and career · from Xi’an to Shenzhen, spanning academia and industry',
     education: 'Education',
     work: 'Work Experience',
-    startupBadge: '★ Startup',
-    viewStartup: 'View startup details',
+    startupBadge: '★ Independent Project',
+    viewStartup: 'View independent projects',
     viewPubs: 'View publications',
+  },
+  blogPage: {
+    title: 'Blog',
+    subtitle: 'Research insights and technical deep-dives from computational imaging to neural rendering',
+    comingSoon: 'Coming Soon',
+    readTime: 'min read',
+  },
+  coursesPage: {
+    title: 'Courses',
+    subtitle: 'Courses designed to bridge computational imaging research and practical applications',
+    comingSoon: 'Coming Soon',
+    level: 'Level',
+    duration: 'Duration',
+    topics: 'Topics',
   },
   contactPage: {
     title: 'Contact',
-    subtitle: 'Feel free to reach out about research collaboration, startup projects or academic exchange',
+    subtitle: 'Feel free to reach out about research collaboration, independent projects or academic exchange',
     emails: 'Primary Emails',
     platforms: 'Academic Platforms',
     about: 'About',
@@ -247,13 +283,15 @@ const zh: UIStrings = {
     research: '研究方向',
     publications: '学术论文',
     projects: '科研项目',
-    startup: '创业',
+    startup: '独立项目',
+    blog: '博客',
+    courses: '课程',
     experience: '经历',
     contact: '联系',
   },
   hero: {
     ctaResearch: '研究方向',
-    ctaStartup: '创业项目',
+    ctaStartup: '独立项目',
   },
   researchPreview: {
     title: '研究方向',
@@ -266,13 +304,13 @@ const zh: UIStrings = {
     viewAll: '查看全部论文',
   },
   startupHighlight: {
-    title: '创业项目',
-    subtitle: '科研到产品的转化 · AI 量化交易与区块链数字艺术',
+    title: '独立项目',
+    subtitle: '从科研到创意工具 · AI 系统、数字艺术与内容创作工作室',
     statusActive: '运营中',
     statusArchived: '已归档',
     website: '官网',
     learnMore: '了解更多',
-    viewAll: '查看创业详情',
+    viewAll: '查看全部项目',
   },
   latestNews: {
     title: '最新动态',
@@ -304,6 +342,7 @@ const zh: UIStrings = {
     featured: '★ 代表作',
     papers: (n) => `${n} 篇`,
     viewScholar: '在 Google Scholar 查看完整引用',
+    code: '代码',
   },
   projectsPage: {
     title: '科研项目',
@@ -312,32 +351,34 @@ const zh: UIStrings = {
     viewResearch: '查看研究方向',
   },
   startupPage: {
-    badge: '创业 · Entrepreneurship',
-    heroTitle: '将计算成像与 AI 转化为产品',
-    heroDesc: '从科研走向创业 — 用神经渲染、实时 AI 系统与区块链技术，在量化交易与数字艺术领域构建产品。',
-    productsTitle: '创业项目',
-    productsSubtitle: '两个创业项目，覆盖 AI 量化交易与区块链数字艺术',
+    badge: '独立项目',
+    heroTitle: '将科研转化为创意工具与产品',
+    heroDesc: '从科研到独立项目 — 用神经渲染、实时 AI 系统与生成模型，构建 AI 系统、数字艺术平台与内容创作工作室。',
+    productsTitle: '独立项目',
+    productsSubtitle: '六个项目，覆盖 AI 系统、数字艺术与内容创作工作室',
     foundedIn: '创立于',
     coreFeatures: '核心特性',
     techStack: '技术栈',
     visitSite: '访问官网',
     capabilitiesTitle: '技术能力',
     capabilitiesSubtitle: '科研能力到产品能力的转化',
-    timelineTitle: '创业历程',
-    timelineSubtitle: '创业历程里程碑',
+    timelineTitle: '项目历程',
+    timelineSubtitle: '项目里程碑',
     viewFullCv: '查看完整履历',
     contactCollab: '联系合作',
     capabilities: [
       { icon: 'cpu', title: 'AI 系统工程', desc: '实时深度学习推理、低延迟信号管线、主流框架集成', tag: 'Real-time AI' },
       { icon: 'box', title: '3D 重建与渲染', desc: '多视角采集、神经渲染、照片级真实 3D 资产生成', tag: 'Neural Rendering' },
-      { icon: 'link', title: '区块链 / NFT', desc: '链上铸造、真实场景数据上链、数字藏品全流程', tag: 'Web3' },
-      { icon: 'rocket', title: '产品化落地', desc: '从科研原型到生产系统、加密货币交易所对接', tag: 'Product' },
+      { icon: 'sparkles', title: 'AIGC 与内容创作', desc: '面向图像、三维、视频与交互叙事的多模态 AI 生成', tag: 'AIGC' },
+      { icon: 'rocket', title: '产品化落地', desc: '从科研原型到生产系统与创意平台', tag: 'Product' },
     ],
     timeline: [
-      { date: '2018-05', title: '创立 SigTrading', desc: '启动实时 AI 量化交易系统研发，面向加密货币交易所' },
-      { date: '2021-03', title: '创立 Capmake', desc: '探索区块链数字艺术，将真实场景数据转化为链上藏品' },
-      { date: '2021+', title: '3D NFT 产品线', desc: '在 SigTrading 中融合多视图重建能力，生成真实场景 3D NFT' },
-      { date: '至今', title: '持续运营', desc: 'SigTrading 持续运营，连接 AI、金融与 3D 视觉' },
+      { date: '2018-05', title: 'SigTrading', desc: '启动实时 AI 量化交易系统，面向加密货币交易所' },
+      { date: '2021-03', title: 'Capmake', desc: '探索区块链数字艺术，将真实场景数据转化为链上藏品' },
+      { date: '2024-06', title: 'AIGC Studio', desc: '上线 AIGC 总平台，下辖 Paper Studio、Story Studio 与 Cosmic Studio' },
+      { date: '2024-06', title: 'Paper Studio', desc: '构建学术论文交互式可视化工具（AIGC Studio 子项目）' },
+      { date: '2024-09', title: 'Story Studio', desc: '上线 AI 辅助叙事与故事创作平台（AIGC Studio 子项目）' },
+      { date: '2025-01', title: 'Cosmic Studio', desc: '开发 AI 驱动的漫画生成平台（AIGC Studio 子项目）' },
     ],
   },
   experiencePage: {
@@ -345,13 +386,27 @@ const zh: UIStrings = {
     subtitle: '教育背景与职业经历 · 从西安到深圳，跨越学术界与产业界',
     education: '教育背景',
     work: '工作经历',
-    startupBadge: '★ 创业经历',
-    viewStartup: '查看创业详情',
+    startupBadge: '★ 独立项目',
+    viewStartup: '查看独立项目',
     viewPubs: '查看论文成果',
+  },
+  blogPage: {
+    title: '博客',
+    subtitle: '从计算成像到神经渲染的研究洞察与技术深度解析',
+    comingSoon: '即将发布',
+    readTime: '分钟阅读',
+  },
+  coursesPage: {
+    title: '课程',
+    subtitle: '连接计算成像研究与实际应用的课程设计',
+    comingSoon: '即将上线',
+    level: '级别',
+    duration: '时长',
+    topics: '主题',
   },
   contactPage: {
     title: '联系方式',
-    subtitle: '欢迎就科研合作、创业项目或学术交流与我联系',
+    subtitle: '欢迎就科研合作、独立项目或学术交流与我联系',
     emails: '主要邮箱',
     platforms: '学术平台',
     about: '关于',

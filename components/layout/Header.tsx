@@ -27,6 +27,8 @@ export default function Header() {
     { href: '/publications', label: t.nav.publications },
     { href: '/projects', label: t.nav.projects },
     { href: '/startup', label: t.nav.startup },
+    { href: '/blog', label: t.nav.blog },
+    { href: '/courses', label: t.nav.courses },
     { href: '/experience', label: t.nav.experience },
     { href: '/contact', label: t.nav.contact },
   ]

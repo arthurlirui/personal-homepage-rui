@@ -5,13 +5,17 @@ import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { SectionTitle, Badge, LinkButton } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
-import { TrendingUp, Palette, ExternalLink, Check, Rocket, Cpu, Boxes, Link2 } from 'lucide-react'
+import { TrendingUp, Palette, ExternalLink, Check, Rocket, Cpu, Boxes, Link2, FileText, BookOpen, Globe, Sparkles, CornerDownRight } from 'lucide-react'
 
 const iconMap = {
   'trending-up': TrendingUp,
   palette: Palette,
   box: Boxes,
   cpu: Cpu,
+  'file-text': FileText,
+  'book-open': BookOpen,
+  globe: Globe,
+  sparkles: Sparkles,
 }
 
 const capIconMap: Record<string, typeof Cpu> = {
@@ -19,6 +23,7 @@ const capIconMap: Record<string, typeof Cpu> = {
   box: Boxes,
   link: Link2,
   rocket: Rocket,
+  sparkles: Sparkles,
 }
 
 export default function StartupPageClient() {
@@ -26,6 +31,7 @@ export default function StartupPageClient() {
   const t = ui(lang)
   const capabilities = t.startupPage.capabilities
   const timeline = t.startupPage.timeline
+  const topLevel = startups.filter((s) => !s.parentId)
 
   return (
     <div>
@@ -51,11 +57,13 @@ export default function StartupPageClient() {
         <SectionTitle subtitle={t.startupPage.productsSubtitle}>{t.startupPage.productsTitle}</SectionTitle>
 
         <div className="space-y-8">
-          {startups.map((s, i) => {
+          {topLevel.map((s, i) => {
             const Icon = iconMap[s.icon] ?? TrendingUp
             const statusLabel = s.status === 'active' ? t.startupHighlight.statusActive : t.startupHighlight.statusArchived
             const description = pick(s.description, s.descriptionZh, lang)
             const features = pick(s.features, s.featuresZh, lang)
+            const children = startups.filter((c) => c.parentId === s.id)
+
             return (
               <ScrollReveal key={s.id} delay={i * 0.1}>
                 <div className="card p-7">
@@ -125,6 +133,47 @@ export default function StartupPageClient() {
                       </a>
                     </div>
                   )}
+
+                  {/* Sub-studios */}
+                  {children.length > 0 && (
+                    <div className="mt-7 pt-6 border-t border-slate-100">
+                      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">
+                        {lang === 'zh' ? '子项目' : 'Sub-studios'}
+                      </p>
+                      <div className="grid sm:grid-cols-3 gap-3">
+                        {children.map((c) => {
+                          const ChildIcon = iconMap[c.icon] ?? TrendingUp
+                          const childDesc = pick(c.description, c.descriptionZh, lang)
+                          const childFeatures = pick(c.features, c.featuresZh, lang)
+                          return (
+                            <div key={c.id} className="bg-surface-muted/40 rounded-lg p-4 border border-slate-100">
+                              <div className="flex items-center gap-2 mb-2">
+                                <CornerDownRight size={14} className="text-slate-400 shrink-0" />
+                                <div className={`w-8 h-8 rounded-lg ${c.accent} flex items-center justify-center shrink-0`}>
+                                  <ChildIcon size={16} />
+                                </div>
+                                <h4 className="font-serif font-semibold text-slate-900 text-sm">{c.name}</h4>
+                              </div>
+                              <p className="text-xs text-slate-600 leading-relaxed mb-2">{childDesc}</p>
+                              <ul className="space-y-1">
+                                {childFeatures.map((f) => (
+                                  <li key={f.title} className="text-xs text-slate-600 flex items-start gap-1.5">
+                                    <Check size={11} className="text-accent mt-0.5 shrink-0" />
+                                    <span><span className="font-semibold text-slate-700">{f.title}</span> — {f.desc}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                              <div className="mt-3 flex flex-wrap gap-1">
+                                {c.techStack.slice(0, 3).map((tk) => (
+                                  <Badge key={tk} variant="outline">{tk}</Badge>
+                                ))}
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </ScrollReveal>
             )
@@ -158,12 +207,12 @@ export default function StartupPageClient() {
         </div>
       </section>
 
-      {/* 创业时间线 */}
+      {/* 独立项目时间线 */}
       <section className="section-container">
         <SectionTitle subtitle={t.startupPage.timelineSubtitle}>{t.startupPage.timelineTitle}</SectionTitle>
         <div className="relative pl-6 border-l-2 border-accent-subtle space-y-6">
           {timeline.map((tl, i) => (
-            <ScrollReveal key={tl.title} delay={i * 0.08}>
+            <ScrollReveal key={tl.title + i} delay={i * 0.08}>
               <div className="relative">
                 <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-accent border-4 border-white shadow" />
                 <p className="text-xs text-accent font-medium">{tl.date}</p>
