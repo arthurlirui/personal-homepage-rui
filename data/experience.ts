@@ -14,7 +14,7 @@ export interface ExperienceItem {
 
 export const experiences: ExperienceItem[] = [
   {
-    role: 'Research Scientist',
+    role: 'Assistant Researcher',
     organization: 'Peng Cheng Laboratory',
     orgUrl: 'https://www.pcl.ac.cn',
     location: 'Shenzhen, China',

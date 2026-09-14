@@ -49,8 +49,8 @@ export const news: NewsItem[] = [
   {
     id: 'pcl-scientist',
     date: '2023-09-01',
-    title: 'Joined Peng Cheng Laboratory as Research Scientist',
-    titleZh: '加入鹏城实验室，任研究科学家',
+    title: 'Joined Peng Cheng Laboratory as Assistant Researcher',
+    titleZh: '加入鹏城实验室，任助理研究员',
     type: 'career',
     pinned: true,
   },

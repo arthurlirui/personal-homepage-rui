@@ -18,8 +18,8 @@ export const profile = {
   name: 'Rui Li',
   nameZh: '李睿',
   courtesyName: '羽长',
-  title: 'Research Scientist',
-  titleZh: '研究科学家',
+  title: 'Assistant Researcher',
+  titleZh: '助理研究员',
   affiliation: 'Peng Cheng Laboratory, Shenzhen',
   affiliationZh: '鹏城实验室 · 深圳',
   location: 'Shenzhen, China',
@@ -33,9 +33,9 @@ export const profile = {
   tagline: '将计算成像用于现实世界的问题求解',
   taglineZh: '用各类图像测量（光场、偏振、RGB、CT）解决反问题与应用驱动问题',
 
-  bio: `Rui Li (李睿) received his Ph.D. from the Computational Imaging Group at King Abdullah University of Science and Technology (KAUST), advised by Prof. Wolfgang Heidrich. He received his Bachelor's degree from Xidian University and Master's from University of Science and Technology of China (USTC). He is currently a Research Scientist at Peng Cheng Laboratory.`,
+  bio: `Rui Li (李睿) received his Ph.D. from the Computational Imaging Group at King Abdullah University of Science and Technology (KAUST), advised by Prof. Wolfgang Heidrich. He received his Bachelor's degree from Xidian University and Master's from University of Science and Technology of China (USTC). He is currently an Assistant Researcher at Peng Cheng Laboratory.`,
 
-  bioZh: `李睿，鹏城实验室研究科学家。于沙特阿卜杜拉国王科技大学（KAUST）计算成像组获得博士学位（导师 Wolfgang Heidrich 教授，2023），中国科学技术大学硕士（2016），西安电子科技大学本科（2013）。研究方向聚焦于利用光场、偏振图像、RGB 图像、CT 等各类成像测量解决反问题：照片级真实 3D 场景重建与表示、新视角合成、分割、深度估计、反射去除。`,
+  bioZh: `李睿，鹏城实验室助理研究员。于沙特阿卜杜拉国王科技大学（KAUST）计算成像组获得博士学位（导师 Wolfgang Heidrich 教授，2023），中国科学技术大学硕士（2016），西安电子科技大学本科（2013）。研究方向聚焦于利用光场、偏振图像、RGB 图像、CT 等各类成像测量解决反问题：照片级真实 3D 场景重建与表示、新视角合成、分割、深度估计、反射去除。`,
 
   researchInterests: [
     'Computational Photography',
