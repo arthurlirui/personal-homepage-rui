@@ -5,12 +5,47 @@ export interface NewsItem {
   date: string // ISO
   title: string
   titleZh: string
-  type: 'award' | 'publication' | 'talk' | 'career' | 'project'
+  type: 'award' | 'publication' | 'talk' | 'career' | 'project' | 'submission'
   pinned?: boolean
   url?: string
 }
 
 export const news: NewsItem[] = [
+  {
+    id: 'icassp-2027-submission',
+    date: '2026-09-16',
+    title: 'Submitted 2 papers to ICASSP 2027',
+    titleZh: '投稿 2 篇论文至 ICASSP 2027',
+    type: 'submission',
+  },
+  {
+    id: 'icra-2027-submission',
+    date: '2026-09-15',
+    title: 'Submitted 2 papers to ICRA 2027',
+    titleZh: '投稿 2 篇论文至 ICRA 2027',
+    type: 'submission',
+  },
+  {
+    id: 'point-ladder-tuning-accepted',
+    date: '2026-09-09',
+    title: 'Point Ladder Tuning accepted at ECCV 2026',
+    titleZh: 'Point Ladder Tuning 被 ECCV 2026 录用',
+    type: 'publication',
+  },
+  {
+    id: 'geometry-adaptive-polyhedron-accepted',
+    date: '2026-07-07',
+    title: 'Geometry-Adaptive 3D Convex Polyhedron accepted at ICME 2026',
+    titleZh: '几何自适应凸多面体论文被 ICME 2026 录用',
+    type: 'publication',
+  },
+  {
+    id: 'cwc-dnerf-accepted',
+    date: '2025-10-25',
+    title: 'CWC-DNERF accepted at ICIP 2025',
+    titleZh: 'CWC-DNERF 被 ICIP 2025 录用',
+    type: 'publication',
+  },
   {
     id: 'pcl-scientist',
     date: '2023-09-01',

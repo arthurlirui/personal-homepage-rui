@@ -5,7 +5,7 @@ import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { SectionTitle, LinkButton } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
-import { Award, FileText, Briefcase, Rocket, Mic } from 'lucide-react'
+import { Award, FileText, Briefcase, Rocket, Mic, Send } from 'lucide-react'
 
 const typeIcon = {
   award: Award,
@@ -13,6 +13,7 @@ const typeIcon = {
   talk: Mic,
   career: Briefcase,
   project: Rocket,
+  submission: Send,
 }
 
 const typeColor = {
@@ -21,6 +22,7 @@ const typeColor = {
   talk: 'text-violet-600 bg-violet-50',
   career: 'text-slate-600 bg-slate-100',
   project: 'text-emerald-600 bg-emerald-50',
+  submission: 'text-indigo-600 bg-indigo-50',
 }
 
 export default function LatestNews() {
