@@ -4,16 +4,22 @@
 // 供 /projects/[subId] 子页面在构建时读取（Vercel 构建服务器无法访问本机绝对路径）。
 //
 // 用法：
-//   node scripts/sync-readmes.js
+//   node scripts/sync-readmes.js   （或 pnpm sync-readmes）
 //
 // 同步映射在下方 SOURCES 中维护：key = data/readmes/ 下的目标文件名，
 // value = 外部 README 的绝对路径。
 //
-const fs = require('node:fs')
-const path = require('node:path')
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const SOURCES = {
   'quant-trading.md': 'D:/Code/quant-trading/README.md',
+  'paper-studio.md': 'D:/Code/paper-studio/README.md',
+  'story-studio.md': 'D:/Code/story-studio/README.md',
+  'gesture-coach.md': 'D:/Code/AIforEducation/GestureCoach/README.md',
 }
 
 const outDir = path.join(__dirname, '..', 'data', 'readmes')

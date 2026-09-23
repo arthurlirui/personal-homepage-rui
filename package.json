@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync-readmes": "node scripts/sync-readmes.js"
+    "sync-readmes": "node scripts/sync-readmes.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.1.0",
