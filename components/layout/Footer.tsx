@@ -4,6 +4,7 @@ import { profile } from '@/data/profile'
 import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { Code, GraduationCap, Mail, Link as LinkIcon } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Footer() {
   const { lang } = useLang()
@@ -34,9 +35,31 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <p className="mt-6 text-xs text-slate-400 text-center">
-          © {new Date().getFullYear()} {profile.name}. {t.footer.builtWith}
-        </p>
+        <div className="mt-6 flex items-end justify-center gap-3">
+          <p className="text-xs text-slate-400 text-center flex-1">
+            © {new Date().getFullYear()} {profile.name}. {t.footer.builtWith}
+          </p>
+          {/* INTJ 紫老头彩蛋 —— 低调放在版权旁边 */}
+          <a
+            href="https://www.16personalities.com/intj-personality"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative shrink-0 opacity-40 hover:opacity-100 transition-opacity duration-300"
+            aria-label="INTJ · The Architect"
+            title="INTJ · The Architect"
+          >
+            <Image
+              src="/intj.png"
+              alt="INTJ 紫老头"
+              width={36}
+              height={36}
+              className="grayscale group-hover:grayscale-0 transition-all duration-300"
+            />
+            <span className="pointer-events-none absolute -top-7 right-0 whitespace-nowrap rounded bg-[#4a3f6b] px-2 py-0.5 text-[10px] font-medium tracking-wide text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              INTJ · Architect
+            </span>
+          </a>
+        </div>
       </div>
     </footer>
   )
