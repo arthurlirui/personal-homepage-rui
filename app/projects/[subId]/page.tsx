@@ -31,11 +31,12 @@ export default async function SubProjectReadmePage({
   }
   const parent = startups.find((s) => s.id === sub.parentId)
 
-  // 读取 README（readmePath 为绝对路径；缺失或读取失败时优雅降级）。
+  // 读取 README（readmePath 为仓库内相对路径，如 data/readmes/quant-trading.md；
+  // 在 Vercel 构建时 process.cwd() 即仓库根，文件存在可读取）。
   let readme: string | null = null
   if (sub.readmePath) {
     try {
-      readme = await fs.readFile(path.resolve(sub.readmePath), 'utf8')
+      readme = await fs.readFile(path.join(process.cwd(), sub.readmePath), 'utf8')
     } catch {
       readme = null
     }

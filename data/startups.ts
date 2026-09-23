@@ -73,7 +73,7 @@ export const startups: Startup[] = [
     founded: '2024-01',
     status: 'active',
     parentId: 'sigtrading',
-    readmePath: 'D:/Code/quant-trading/README.md',
+    readmePath: 'data/readmes/quant-trading.md',
     tagline: 'Multi-strategy, multi-core, LLM-augmented Binance quantitative trading system (spot + USDⓈ-M futures)',
     taglineZh: '多策略 · 多核 · LLM 增强的 Binance 量化交易系统（现货 + USDⓈ-M 合约）',
     description:
