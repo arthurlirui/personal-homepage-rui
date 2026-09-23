@@ -95,6 +95,16 @@ export default function StartupHighlight() {
                             <h4 className="font-serif font-semibold text-slate-900 text-sm">{c.name}</h4>
                           </div>
                           <p className="mt-2 text-xs text-slate-600 leading-relaxed flex-1">{childTagline}</p>
+                          {c.readmePath && (
+                            <Link
+                              href={`/projects/${c.id}`}
+                              className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-light transition-colors"
+                            >
+                              <FileText size={12} />
+                              {t.subProjectReadme.readmeTitle}
+                              <ArrowRight size={12} className="transition-transform group-hover:translate-x-0.5" />
+                            </Link>
+                          )}
                         </div>
                       )
                     })}

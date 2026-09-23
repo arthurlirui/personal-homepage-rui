@@ -5,7 +5,8 @@ import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { SectionTitle, Badge, LinkButton } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
-import { TrendingUp, Palette, ExternalLink, Check, Rocket, Cpu, Boxes, Link2, FileText, BookOpen, Globe, Sparkles, CornerDownRight } from 'lucide-react'
+import { TrendingUp, Palette, ExternalLink, Check, Rocket, Cpu, Boxes, Link2, FileText, BookOpen, Globe, Sparkles, CornerDownRight, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const iconMap = {
   'trending-up': TrendingUp,
@@ -168,6 +169,16 @@ export default function StartupPageClient() {
                                   <Badge key={tk} variant="outline">{tk}</Badge>
                                 ))}
                               </div>
+                              {c.readmePath && (
+                                <Link
+                                  href={`/projects/${c.id}`}
+                                  className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-light transition-colors"
+                                >
+                                  <FileText size={12} />
+                                  {t.subProjectReadme.readmeTitle}
+                                  <ArrowRight size={12} />
+                                </Link>
+                              )}
                             </div>
                           )
                         })}

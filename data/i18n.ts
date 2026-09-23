@@ -75,6 +75,14 @@ export interface UIStrings {
     visitProject: string
     viewResearch: string
   }
+  subProjectReadme: {
+    backToProjects: string
+    parentLabel: string
+    readmeTitle: string
+    readmeSubtitle: string
+    viewSource: string
+    notAvailable: string
+  }
   startupPage: {
     badge: string
     heroTitle: string
@@ -205,6 +213,14 @@ const en: UIStrings = {
       `${n} research projects spanning neural rendering, computational photography, visual tracking and machine learning`,
     visitProject: 'Visit project',
     viewResearch: 'View research directions',
+  },
+  subProjectReadme: {
+    backToProjects: 'Back to projects',
+    parentLabel: 'Sub-project of',
+    readmeTitle: 'README',
+    readmeSubtitle: 'Rendered from the project repository',
+    viewSource: 'View source',
+    notAvailable: 'README not available for this sub-project.',
   },
   startupPage: {
     badge: 'Independent Projects',
@@ -349,6 +365,14 @@ const zh: UIStrings = {
     subtitle: (n) => `共 ${n} 个科研项目，涵盖神经渲染、计算摄影、视觉追踪与机器学习`,
     visitProject: '访问项目',
     viewResearch: '查看研究方向',
+  },
+  subProjectReadme: {
+    backToProjects: '返回项目列表',
+    parentLabel: '隶属于',
+    readmeTitle: '项目说明',
+    readmeSubtitle: '源自项目仓库 README',
+    viewSource: '查看源码',
+    notAvailable: '该子项目暂无 README。',
   },
   startupPage: {
     badge: '独立项目',

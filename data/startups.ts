@@ -20,6 +20,7 @@ export interface Startup {
   accent: string // tailwind color class for icon bg
   icon: 'trending-up' | 'palette' | 'box' | 'cpu' | 'file-text' | 'book-open' | 'globe' | 'sparkles'
   parentId?: string // if set, this is a sub-project of the given parent
+  readmePath?: string // local absolute path to a README.md rendered as a sub-page (for sub-projects)
 }
 
 export const startups: Startup[] = [
@@ -64,6 +65,55 @@ export const startups: Startup[] = [
     ],
     accent: 'bg-accent-subtle text-accent',
     icon: 'trending-up',
+  },
+  {
+    id: 'quant-trading',
+    name: 'Quant Trading System',
+    role: 'Core Engineer',
+    founded: '2024-01',
+    status: 'active',
+    parentId: 'sigtrading',
+    readmePath: 'D:/Code/quant-trading/README.md',
+    tagline: 'Multi-strategy, multi-core, LLM-augmented Binance quantitative trading system (spot + USDⓈ-M futures)',
+    taglineZh: '多策略 · 多核 · LLM 增强的 Binance 量化交易系统（现货 + USDⓈ-M 合约）',
+    description:
+      'Quant Trading System is the flagship trading engine under SigTrading: 8 parallel strategies, a multiprocessing + shared-memory zero-copy market ring buffer, LLM market-regime prediction with three-factor signal fusion, event-driven backtesting, grid/walk-forward parameter optimization, a multi-source news sentiment aggregator, and a React TradingView-style terminal. Default testnet-first, fully scriptable via a typer CLI.',
+    descriptionZh:
+      'Quant Trading System 是 SigTrading 旗下的旗舰交易引擎：8 大策略并行、基于 multiprocessing + shared-memory 的零拷贝行情环形缓冲、LLM 市场态势预测与三因子信号融合、事件驱动回测、网格搜索 + Walk-Forward 参数优化、多源新闻情绪聚合，以及 React TradingView 风格交易终端。默认测试网优先，完整可用 typer CLI 脚本化驱动。',
+    highlights: [
+      '8 parallel strategies (VolumeSurge / Grid / MACD+RSI / MeanReversion / Momentum / LLMMartingale / LLMChaseReversal / NewsSentiment)',
+      'Lock-free SharedRingBuffer (seqlock) with per-strategy CPU pinning and zero-copy broadcast',
+      'LLM market-regime prediction with three-factor signal fusion (base + LLM + news)',
+    ],
+    highlightsZh: [
+      '8 大策略并行（VolumeSurge / Grid / MACD+RSI / MeanReversion / Momentum / LLMMartingale / LLMChaseReversal / NewsSentiment）',
+      '无锁 SharedRingBuffer (seqlock)，按策略绑定物理核，零拷贝行情广播',
+      'LLM 市场态势预测，三因子信号融合（base + LLM + news）',
+    ],
+    techStack: ['Python 3.12', 'FastAPI', 'React 19', 'multiprocessing', 'shared_memory', 'Binance WS', 'LLM', 'pytest'],
+    features: [
+      { title: 'Multi-core Engine', desc: 'Lock-free ring buffer (seqlock) + per-strategy CPU affinity; real Binance WS or synthetic walk.' },
+      { title: '8 Strategies + Fusion', desc: 'Registry/factory pattern; three-factor fusion final = (1-w_llm-w_news)*base + w_llm*llm + w_news*news.' },
+      { title: 'Event-driven Backtest', desc: 'Sharpe / MaxDD / Win-rate / Profit Factor; unified signal vocabulary {buy, sell, close_long, close_short, hold}.' },
+      { title: 'Parameter Optimizer', desc: 'GridSearch + Walk-Forward anti-overfit validation with stability analysis (CV) and out-of-sample overfit ratio.' },
+      { title: 'News Sentiment Aggregator', desc: 'RSS / Binance announcements / NewsAPI / CryptoPanic / Reddit / X API v2 / Fear&Greed / Whale Alert + CoinGlass funding.' },
+      { title: 'typer CLI + React Terminal', desc: 'Offline CLI for backtest/optimizer/data; dark TradingView-style terminal with OrderBook, NewsFeed, SentimentPanel.' },
+    ],
+    featuresZh: [
+      { title: '多核交易引擎', desc: '无锁环形缓冲 (seqlock) + 策略绑核；可接真实 Binance WS 或合成随机游走。' },
+      { title: '8 策略 + 三因子融合', desc: '注册表/工厂模式；final = (1-w_llm-w_news)*base + w_llm*llm + w_news*news，权重 REST 实时可调。' },
+      { title: '事件驱动回测', desc: 'Sharpe / MaxDD / 胜率 / Profit Factor；信号词汇统一 {buy, sell, close_long, close_short, hold}。' },
+      { title: '参数优化器', desc: 'GridSearch + Walk-Forward 防过拟合，含稳定性分析 (变异系数) 与样本外过拟合比。' },
+      { title: '新闻情绪聚合', desc: 'RSS / Binance 公告 / NewsAPI / CryptoPanic / Reddit / X API v2 / 恐慌贪婪 / Whale Alert + CoinGlass 资金费率。' },
+      { title: 'typer CLI + React 终端', desc: '离线 CLI 直接驱动回测/优化/数据；深色 TradingView 风格终端，含 OrderBook、NewsFeed、SentimentPanel。' },
+    ],
+    metrics: [
+      { label: '启动', labelEn: 'Launched', value: '2024', valueEn: '2024' },
+      { label: '策略', labelEn: 'Strategies', value: '8 个', valueEn: '8' },
+      { label: '方向', labelEn: 'Focus', value: '量化 × LLM', valueEn: 'Quant × LLM' },
+    ],
+    accent: 'bg-sky-50 text-sky-700',
+    icon: 'cpu',
   },
   {
     id: 'capmake',
