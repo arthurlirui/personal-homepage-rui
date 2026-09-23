@@ -432,5 +432,7 @@ function renderBlocks(blocks: Block[]): ReactNode[] {
 // ─── 对外组件 ──────────────────────────────────────────────────
 export function Markdown({ source }: { source: string }) {
   const blocks = parseBlocks(source)
-  return <div className="prose max-w-none">{renderBlocks(blocks)}</div>
+  // No `prose` class here — the parent container (e.g. `.readme-doc`) owns
+  // typography so the renderer stays theme-agnostic and reusable.
+  return <div className="max-w-none">{renderBlocks(blocks)}</div>
 }

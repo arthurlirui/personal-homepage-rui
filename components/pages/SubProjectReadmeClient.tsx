@@ -5,8 +5,19 @@ import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { Badge, LinkButton } from '@/components/ui'
 import { Markdown } from '@/components/ui/Markdown'
-import { ArrowLeft, ExternalLink, FileText } from 'lucide-react'
+import { ArrowLeft, ExternalLink, FileText, Cpu, TrendingUp, Palette, FileText as FileTextIcon, BookOpen, Globe, Sparkles, Box } from 'lucide-react'
 import type { Startup } from '@/data/startups'
+
+const iconMap = {
+  'trending-up': TrendingUp,
+  palette: Palette,
+  box: Box,
+  cpu: Cpu,
+  'file-text': FileTextIcon,
+  'book-open': BookOpen,
+  globe: Globe,
+  sparkles: Sparkles,
+}
 
 export default function SubProjectReadmeClient({
   sub,
@@ -20,17 +31,17 @@ export default function SubProjectReadmeClient({
   const { lang } = useLang()
   const t = ui(lang)
   const tagline = pick(sub.tagline, sub.taglineZh, lang)
-  const description = pick(sub.description, sub.descriptionZh, lang)
+  const Icon = iconMap[sub.icon] ?? Cpu
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative pt-28 pb-10 md:pt-32 md:pb-12 overflow-hidden">
+      {/* Hero — matches StartupPageClient hero pattern: full-bleed section + constrained inner column */}
+      <section className="relative pt-28 pb-10 md:pt-32 md:pb-12 overflow-hidden border-b border-slate-100">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-16 left-1/3 w-80 h-80 bg-accent-subtle/40 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-50 rounded-full blur-3xl" />
         </div>
-        <div className="section-container! pt-0">
+        <div className="max-w-[880px] mx-auto px-6">
           <Link
             href="/projects"
             className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-accent transition-colors"
@@ -39,26 +50,30 @@ export default function SubProjectReadmeClient({
             {t.subProjectReadme.backToProjects}
           </Link>
 
-          <div className="mt-5 flex items-center gap-2 flex-wrap">
-            <Badge variant="accent">
-              <span className="inline-flex items-center gap-1">
-                <FileText size={12} />
-                {t.subProjectReadme.readmeTitle}
-              </span>
-            </Badge>
-            {parent && (
-              <span className="text-xs text-slate-500">
-                {t.subProjectReadme.parentLabel}:{' '}
-                <Link href="/projects" className="text-accent hover:underline">
-                  {parent.name}
-                </Link>
-              </span>
-            )}
+          <div className="mt-5 flex items-start gap-4">
+            <div className={`w-12 h-12 shrink-0 rounded-xl ${sub.accent} flex items-center justify-center`}>
+              <Icon size={24} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <Badge variant="accent">
+                  <span className="inline-flex items-center gap-1">
+                    <FileText size={12} />
+                    {t.subProjectReadme.readmeTitle}
+                  </span>
+                </Badge>
+                {parent && (
+                  <span className="text-xs text-slate-500">
+                    {t.subProjectReadme.parentLabel}:{' '}
+                    <Link href="/projects" className="text-accent hover:underline">
+                      {parent.name}
+                    </Link>
+                  </span>
+                )}
+              </div>
+              <p className="mt-2 text-sm text-accent font-medium">{tagline}</p>
+            </div>
           </div>
-
-          <h1 className="mt-3 text-3xl md:text-4xl font-serif font-bold text-slate-900">{sub.name}</h1>
-          <p className="mt-3 text-lg text-slate-600 leading-relaxed max-w-2xl">{tagline}</p>
-          <p className="mt-2 text-sm text-slate-500 leading-relaxed max-w-3xl">{description}</p>
 
           {sub.techStack && sub.techStack.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-1.5">
@@ -72,17 +87,17 @@ export default function SubProjectReadmeClient({
         </div>
       </section>
 
-      {/* README body */}
-      <section className="section-container! pt-0">
-        <div className="card p-6 md:p-10">
-          {readme ? (
+      {/* README body — uses the site's standard section-container (880px) like other content pages */}
+      <section className="section-container">
+        {readme ? (
+          <article className="readme-doc">
             <Markdown source={readme} />
-          ) : (
-            <p className="text-slate-500 italic">{t.subProjectReadme.notAvailable}</p>
-          )}
-        </div>
+          </article>
+        ) : (
+          <p className="text-slate-500 italic">{t.subProjectReadme.notAvailable}</p>
+        )}
 
-        <div className="mt-8 flex gap-6 flex-wrap">
+        <div className="mt-12 pt-6 border-t border-slate-100 flex gap-6 flex-wrap">
           <LinkButton href="/projects">{t.subProjectReadme.backToProjects}</LinkButton>
           {sub.website && (
             <a
