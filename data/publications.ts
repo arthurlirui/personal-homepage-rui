@@ -90,7 +90,7 @@ export const publications: Publication[] = [
     year: 2026,
     type: 'conference',
     featured: true,
-    ccf: 'A',
+    ccf: 'B',
     csrankings: true,
     // teaser: '/uploads/teasers/point-ladder-tuning.gif',
     // pdf: '/uploads/papers/point-ladder-tuning.pdf',
