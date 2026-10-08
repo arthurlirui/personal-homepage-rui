@@ -1,5 +1,7 @@
 'use client'
 
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { profile } from '@/data/profile'
 import { useLang, pick } from '@/components/context/LanguageContext'
 import { Mail, FileText, User } from 'lucide-react'
@@ -30,32 +32,77 @@ export default function HeroSection() {
   const resumeHref = lang === 'zh' ? profile.resumeZh : profile.resumeEn
   const bio = lang === 'zh' ? bioZh : bioEn
 
+  // Parallax for the decorative background blobs — they drift slower than
+  // the foreground as the user scrolls past the hero.
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+  const blob1Y = useTransform(scrollYProgress, [0, 1], [0, 140])
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [0, -100])
+
+  // Staggered entrance for the hero text block.
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  }
+  const item = {
+    hidden: { opacity: 0, y: 16 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
+  }
+
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+    <section ref={sectionRef} className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-accent-subtle/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-slate-100 rounded-full blur-3xl" />
+        <motion.div
+          style={{ y: blob1Y }}
+          className="absolute top-20 left-1/4 w-72 h-72 bg-accent-subtle/40 rounded-full blur-3xl"
+        />
+        <motion.div
+          style={{ y: blob2Y }}
+          className="absolute bottom-10 right-1/4 w-96 h-96 bg-slate-100 rounded-full blur-3xl"
+        />
       </div>
 
       <div className="max-w-[1100px] mx-auto px-6">
         {/* Avatar + name + title */}
-        <div className="text-center">
-          <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-accent-subtle border-4 border-white shadow-lg flex items-center justify-center overflow-hidden">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="text-center"
+        >
+          <motion.div
+            variants={item}
+            className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-6 rounded-full bg-accent-subtle border-4 border-white shadow-lg flex items-center justify-center overflow-hidden"
+          >
             <img src={profile.avatar} alt={profile.name} className="w-full h-full rounded-full object-cover" />
-          </div>
+          </motion.div>
 
           {/* Name always shows both Rui Li and 李睿 */}
-          <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">
+          <motion.h1
+            variants={item}
+            className="text-3xl md:text-4xl font-serif font-bold text-slate-900"
+          >
             {profile.name} <span className="text-accent">·</span> {profile.nameZh}
-          </h1>
-          <p className="mt-2 text-lg md:text-xl text-slate-600 font-medium">
+          </motion.h1>
+          <motion.p variants={item} className="mt-2 text-lg md:text-xl text-slate-600 font-medium">
             {title}
-          </p>
-          <p className="mt-1 text-slate-500">{affiliation}</p>
-        </div>
+          </motion.p>
+          <motion.p variants={item} className="mt-1 text-slate-500">
+            {affiliation}
+          </motion.p>
+        </motion.div>
 
         {/* Social links */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+        <motion.div
+          variants={item}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
+          className="mt-6 flex flex-wrap items-center justify-center gap-4"
+        >
           {profile.socials.map((s) => {
             const Icon = iconMap[s.icon] ?? Mail
             const isExternal = s.href.startsWith('http') || s.href.startsWith('mailto')
@@ -72,10 +119,15 @@ export default function HeroSection() {
               </a>
             )
           })}
-        </div>
+        </motion.div>
 
         {/* About / self-introduction card */}
-        <div className="mt-8 card p-6 md:p-8 text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
+          className="mt-8 card p-6 md:p-8 text-left"
+        >
           <div className="flex items-center gap-2 mb-4">
             <User size={20} className="text-accent" />
             <h2 className="text-xl md:text-2xl font-serif font-semibold text-slate-900">
@@ -88,7 +140,7 @@ export default function HeroSection() {
             ))}
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   )

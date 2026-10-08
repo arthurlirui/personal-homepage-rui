@@ -61,6 +61,8 @@ export interface UIStrings {
     statJournal: string
     statConference: string
     statTopTier: string
+    statCcfA: string
+    statCsrankings: string
     typeJournal: string
     typeConference: string
     typePreprint: string
@@ -199,6 +201,8 @@ const en: UIStrings = {
     statJournal: 'Journal',
     statConference: 'Conference',
     statTopTier: 'Top-tier',
+    statCcfA: 'CCF-A',
+    statCsrankings: 'CSRankings',
     typeJournal: 'Journal',
     typeConference: 'Conference',
     typePreprint: 'Preprint',
@@ -352,6 +356,8 @@ const zh: UIStrings = {
     statJournal: '期刊',
     statConference: '会议',
     statTopTier: '顶会顶刊',
+    statCcfA: 'CCF-A',
+    statCsrankings: 'CSRankings 收录',
     typeJournal: '期刊',
     typeConference: '会议',
     typePreprint: '预印本',

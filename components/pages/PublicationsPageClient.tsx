@@ -1,9 +1,9 @@
 'use client'
 
-import { publications, publicationStats } from '@/data/publications'
+import { publications, publicationStats, pubLevels } from '@/data/publications'
 import { useLang } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
-import { SectionTitle, Badge } from '@/components/ui'
+import { SectionTitle, Badge, LevelBadge } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
 import { FileText, ExternalLink, Code2 } from 'lucide-react'
 import Link from 'next/link'
@@ -24,7 +24,7 @@ export default function PublicationsPageClient() {
     { label: t.publicationsPage.statTotal, value: publicationStats.total },
     { label: t.publicationsPage.statJournal, value: publicationStats.byType.journal },
     { label: t.publicationsPage.statConference, value: publicationStats.byType.conference },
-    { label: t.publicationsPage.statTopTier, value: publications.filter((p) => /SIGGRAPH|ICCV|ECCV|TOG/i.test(p.venue)).length },
+    { label: t.publicationsPage.statCcfA, value: publicationStats.byLevel.ccfA },
   ]
 
   return (
@@ -80,6 +80,9 @@ export default function PublicationsPageClient() {
                               <div className="mt-2 flex flex-wrap items-center gap-2">
                                 <Badge variant="accent">{p.venueShort}</Badge>
                                 <Badge variant="default">{typeLabel[p.type]}</Badge>
+                                {pubLevels(p).map((lv) => (
+                                  <LevelBadge key={lv.label} kind={lv.kind} label={lv.label} />
+                                ))}
                                 {p.featured && <Badge variant="outline">{t.publicationsPage.featured}</Badge>}
                               </div>
                               {p.abstract && (

@@ -5,6 +5,7 @@ import { useLang, pick } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
 import { SectionTitle, LinkButton, Badge } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
+import TiltCard from '@/components/ui/TiltCard'
 import { TrendingUp, Palette, ExternalLink, ArrowRight, FileText, BookOpen, Globe, Sparkles, CornerDownRight } from 'lucide-react'
 import Link from 'next/link'
 
@@ -39,6 +40,7 @@ export default function StartupHighlight() {
 
           return (
             <ScrollReveal key={s.id} delay={i * 0.1}>
+              <TiltCard>
               <div>
                 {/* Parent card */}
                 <div className="card p-6 flex flex-col">
@@ -111,6 +113,7 @@ export default function StartupHighlight() {
                   </div>
                 )}
               </div>
+              </TiltCard>
             </ScrollReveal>
           )
         })}

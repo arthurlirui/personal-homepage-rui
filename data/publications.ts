@@ -11,6 +11,10 @@
 
 export type PubType = 'journal' | 'conference' | 'preprint'
 
+// 论文级别（可选）：
+//   ccf:         CCF 推荐等级 'A' | 'B' | 'C'，参考中国计算机学会推荐目录
+//   csrankings:  是否被 CSRankings 收录（仅统计顶级会议/期刊）
+// 留空（不写）表示无级别收录。编辑时可按需调整。
 export interface Publication {
   id: string
   title: string
@@ -20,6 +24,8 @@ export interface Publication {
   year: number
   type: PubType
   featured: boolean
+  ccf?: 'A' | 'B' | 'C'
+  csrankings?: boolean
   abstract?: string
   doi?: string
   pdf?: string
@@ -42,6 +48,7 @@ export const publications: Publication[] = [
     year: 2023,
     type: 'journal',
     featured: true,
+    ccf: 'C',
     // teaser: '/uploads/teasers/adaptive-diff-grids-cryo-et.gif',
     // pdf: '/uploads/papers/adaptive-diff-grids-cryo-et.pdf',
     // code: 'https://github.com/arthurlirui/xxx',
@@ -55,6 +62,7 @@ export const publications: Publication[] = [
     year: 2024,
     type: 'journal',
     featured: true,
+    ccf: 'C',
     // teaser: '/uploads/teasers/haptic-twin-telecooperation.gif',
     // pdf: '/uploads/papers/haptic-twin-telecooperation.pdf',
     // code: 'https://github.com/arthurlirui/xxx',
@@ -68,6 +76,7 @@ export const publications: Publication[] = [
     year: 2025,
     type: 'conference',
     featured: true,
+    ccf: 'C',
     // teaser: '/uploads/teasers/cwc-dnerf.gif',
     // pdf: '/uploads/papers/cwc-dnerf.pdf',
     // code: 'https://github.com/arthurlirui/xxx',
@@ -81,6 +90,8 @@ export const publications: Publication[] = [
     year: 2026,
     type: 'conference',
     featured: true,
+    ccf: 'A',
+    csrankings: true,
     // teaser: '/uploads/teasers/point-ladder-tuning.gif',
     // pdf: '/uploads/papers/point-ladder-tuning.pdf',
     // code: 'https://github.com/arthurlirui/xxx',
@@ -94,6 +105,7 @@ export const publications: Publication[] = [
     year: 2026,
     type: 'conference',
     featured: true,
+    ccf: 'B',
     // teaser: '/uploads/teasers/geometry-adaptive-polyhedron.gif',
     // pdf: '/uploads/papers/geometry-adaptive-polyhedron.pdf',
     // code: 'https://github.com/arthurlirui/xxx',
@@ -107,6 +119,8 @@ export const publications: Publication[] = [
     year: 2022,
     type: 'journal',
     featured: true,
+    ccf: 'A',
+    csrankings: true,
     abstract:
       'NeAT is a neural adaptive tomography method that reconstructs 3D volumes from sparse and limited-angle CT projections using a learned, adaptive sampling strategy within a differentiable rendering framework.',
     pdf: '/uploads/resume.pdf',
@@ -152,6 +166,8 @@ export const publications: Publication[] = [
     year: 2021,
     type: 'conference',
     featured: true,
+    ccf: 'A',
+    csrankings: true,
     abstract:
       'Combines learning-based and model-based approaches for ill-posed CT inverse problems. Two modules: sinogram prediction (density field as continuous differentiable NN function, self-supervised from incomplete/degraded sinogram) and geometry refinement (local & non-local geometrical priors), applied iteratively. Outperforms on limited-angle tomography (45°), sparse view (as few as 8 views), super-resolution (8×).',
     // teaser: '/uploads/teasers/intratomo.gif',
@@ -167,6 +183,8 @@ export const publications: Publication[] = [
     year: 2020,
     type: 'conference',
     featured: true,
+    ccf: 'A',
+    csrankings: true,
     doi: 'https://doi.org/10.1007/978-3-030-58601-0_46',
     abstract:
       'Generalizes reflection removal to real-world complex light interactions. Learning framework for supervised reflection separation with a polarization-guided ray-tracing model. Uses a polarization sensor capturing 4 linearly polarized photos simultaneously. A new polarization-guided image formation model plus supervised learning for the ray-tracing model yields unprecedented reconstruction quality on real and synthetic data. († equal contribution)',
@@ -183,6 +201,8 @@ export const publications: Publication[] = [
     year: 2019,
     type: 'journal',
     featured: true,
+    ccf: 'A',
+    csrankings: true,
     doi: 'https://doi.org/10.1145/3355089.3356521',
     abstract:
       'A new light field segmentation method respecting texture appearance, depth consistency, and occlusion. Creates well-shaped segments robust to viewpoint changes; hierarchical — a single optimization yields a whole hierarchy of segmentations. Uses a submodular objective function optimized greedily; introduces a "disjoint tree" data structure for efficient submodular optimization on very large graphs.',
@@ -234,4 +254,18 @@ export const publicationStats = {
     conference: publications.filter((p) => p.type === 'conference').length,
     preprint: publications.filter((p) => p.type === 'preprint').length,
   },
+  byLevel: {
+    ccfA: publications.filter((p) => p.ccf === 'A').length,
+    ccfB: publications.filter((p) => p.ccf === 'B').length,
+    ccfC: publications.filter((p) => p.ccf === 'C').length,
+    csrankings: publications.filter((p) => p.csrankings).length,
+  },
+}
+
+// 给定一篇论文，返回其级别标签列表（用于 UI 渲染）
+export function pubLevels(p: { ccf?: 'A' | 'B' | 'C'; csrankings?: boolean }) {
+  const levels: { kind: 'ccf' | 'csrankings'; label: string }[] = []
+  if (p.csrankings) levels.push({ kind: 'csrankings', label: 'CSRankings' })
+  if (p.ccf) levels.push({ kind: 'ccf', label: `CCF ${p.ccf}` })
+  return levels
 }

@@ -1,10 +1,11 @@
 'use client'
 
-import { publications } from '@/data/publications'
+import { publications, pubLevels } from '@/data/publications'
 import { useLang } from '@/components/context/LanguageContext'
 import { ui } from '@/data/i18n'
-import { SectionTitle, LinkButton, Badge } from '@/components/ui'
+import { SectionTitle, LinkButton, Badge, LevelBadge } from '@/components/ui'
 import ScrollReveal from '@/components/layout/ScrollReveal'
+import TiltCard from '@/components/ui/TiltCard'
 import { FileText, ExternalLink } from 'lucide-react'
 
 // Flagship venues featured in the "Selected Papers" section, ordered newest-first.
@@ -24,6 +25,7 @@ export default function PaperHighlights() {
       <div className="space-y-4">
         {featured.map((p, i) => (
           <ScrollReveal key={p.id} delay={i * 0.06}>
+            <TiltCard>
             <article className="card overflow-hidden">
               <div className="flex flex-col sm:flex-row">
                 {/* Teaser thumbnail */}
@@ -48,6 +50,9 @@ export default function PaperHighlights() {
                       <p className="mt-1 text-sm text-slate-600">{p.authors.join(', ')}</p>
                       <div className="mt-2 flex flex-wrap items-center gap-2">
                         <Badge variant="accent">{p.venueShort}</Badge>
+                        {pubLevels(p).map((lv) => (
+                          <LevelBadge key={lv.label} kind={lv.kind} label={lv.label} />
+                        ))}
                         <span className="text-xs text-slate-400">{p.year}</span>
                       </div>
                     </div>
@@ -55,6 +60,7 @@ export default function PaperHighlights() {
                 </div>
               </div>
             </article>
+            </TiltCard>
           </ScrollReveal>
         ))}
       </div>
