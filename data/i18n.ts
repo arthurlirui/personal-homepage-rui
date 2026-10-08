@@ -85,6 +85,13 @@ export interface UIStrings {
     viewSource: string
     notAvailable: string
   }
+  publicationDetail: {
+    backToPubs: string
+    abstract: string
+    viewProject: string
+    noAbstract: string
+    code: string
+  }
   startupPage: {
     badge: string
     heroTitle: string
@@ -225,6 +232,13 @@ const en: UIStrings = {
     readmeSubtitle: 'Rendered from the project repository',
     viewSource: 'View source',
     notAvailable: 'README not available for this sub-project.',
+  },
+  publicationDetail: {
+    backToPubs: 'Back to publications',
+    abstract: 'Abstract',
+    viewProject: 'View related project',
+    noAbstract: 'No abstract available.',
+    code: 'Code',
   },
   startupPage: {
     badge: 'Independent Projects',
@@ -379,6 +393,13 @@ const zh: UIStrings = {
     readmeSubtitle: '源自项目仓库 README',
     viewSource: '查看源码',
     notAvailable: '该子项目暂无 README。',
+  },
+  publicationDetail: {
+    backToPubs: '返回论文列表',
+    abstract: '摘要',
+    viewProject: '查看相关项目',
+    noAbstract: '暂无摘要',
+    code: '代码',
   },
   startupPage: {
     badge: '独立项目',

@@ -75,7 +75,9 @@ export default function PublicationsPageClient() {
                               <FileText size={18} />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h4 className="font-serif font-semibold text-slate-900 leading-snug">{p.title}</h4>
+                              <Link href={`/publications/${p.id}`} className="hover:text-accent transition-colors">
+                                <h4 className="font-serif font-semibold text-slate-900 leading-snug">{p.title}</h4>
+                              </Link>
                               <p className="mt-1 text-sm text-slate-600">{p.authors.join(', ')}</p>
                               <div className="mt-2 flex flex-wrap items-center gap-2">
                                 <Badge variant="accent">{p.venueShort}</Badge>

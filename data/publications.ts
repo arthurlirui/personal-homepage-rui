@@ -137,6 +137,7 @@ export const publications: Publication[] = [
     year: 2022,
     type: 'conference',
     featured: true,
+    ccf: 'C',
     // teaser: '/uploads/teasers/neural-adaptive-scene-tracing.gif',
     // pdf: '/uploads/papers/neural-adaptive-scene-tracing.pdf',
     // code: 'https://github.com/arthurlirui/xxx',
@@ -183,7 +184,7 @@ export const publications: Publication[] = [
     year: 2020,
     type: 'conference',
     featured: true,
-    ccf: 'A',
+    ccf: 'B',
     csrankings: true,
     doi: 'https://doi.org/10.1007/978-3-030-58601-0_46',
     abstract:
