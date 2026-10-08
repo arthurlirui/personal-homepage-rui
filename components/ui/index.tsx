@@ -35,10 +35,10 @@ export function Badge({
 }
 
 // 论文级别徽章：以金属奖牌呈现收录等级
-//   CSRankings → 铂金 (platinum)
+//   CSRankings → 紫晶 (amethyst) — 国际顶级收录
 //   CCF A      → 黄金 (gold)
-//   CCF B      → 白银 (silver)
-//   CCF C      → 青铜 (bronze)
+//   CCF B      → 亮银 (silver) — 亮白色
+//   CCF C      → 深铜 (dark bronze) — 低饱和度，不抢眼
 // 每枚奖牌由「金属渐变环 + 深色内盘 + 高光反光」三层构成，
 // 悬停时轻微上浮，给出真实奖牌的立体质感。
 export function LevelBadge({ kind, label }: { kind: 'ccf' | 'csrankings'; label: string }) {
@@ -46,11 +46,11 @@ export function LevelBadge({ kind, label }: { kind: 'ccf' | 'csrankings'; label:
   //   ringText  = 外圈文字颜色（位于浅色金属环上，用深色）
   //   discText  = 内盘字母颜色（位于深色内盘上，用浅色）
   const medals = {
-    platinum: {
-      ring: 'bg-gradient-to-br from-slate-100 via-indigo-100 to-slate-300 ring-slate-200',
-      disc: 'bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900',
-      ringText: 'text-slate-700',
-      discText: 'text-slate-50',
+    amethyst: {
+      ring: 'bg-gradient-to-br from-violet-100 via-purple-200 to-violet-300 ring-violet-300',
+      disc: 'bg-gradient-to-br from-violet-600 via-purple-700 to-violet-900',
+      ringText: 'text-violet-800',
+      discText: 'text-violet-50',
       glint: 'from-white/40 to-transparent',
     },
     gold: {
@@ -61,29 +61,29 @@ export function LevelBadge({ kind, label }: { kind: 'ccf' | 'csrankings'; label:
       glint: 'from-amber-100/50 to-transparent',
     },
     silver: {
-      ring: 'bg-gradient-to-br from-slate-100 via-slate-200 to-slate-400 ring-slate-300',
+      ring: 'bg-gradient-to-br from-white via-slate-100 to-slate-300 ring-slate-200',
       disc: 'bg-gradient-to-br from-slate-400 via-slate-500 to-slate-700',
       ringText: 'text-slate-600',
       discText: 'text-slate-50',
-      glint: 'from-white/50 to-transparent',
+      glint: 'from-white/60 to-transparent',
     },
-    bronze: {
-      ring: 'bg-gradient-to-br from-orange-200 via-amber-400 to-orange-600 ring-orange-400',
-      disc: 'bg-gradient-to-br from-orange-600 via-amber-800 to-orange-950',
-      ringText: 'text-orange-800',
-      discText: 'text-orange-50',
-      glint: 'from-orange-200/50 to-transparent',
+    darkBronze: {
+      ring: 'bg-gradient-to-br from-stone-200 via-amber-700/60 to-stone-700 ring-stone-400',
+      disc: 'bg-gradient-to-br from-stone-600 via-amber-900 to-stone-900',
+      ringText: 'text-stone-600',
+      discText: 'text-stone-100',
+      glint: 'from-amber-200/30 to-transparent',
     },
   } as const
 
   const key =
     kind === 'csrankings'
-      ? 'platinum'
+      ? 'amethyst'
       : label.includes('A')
         ? 'gold'
         : label.includes('B')
           ? 'silver'
-          : 'bronze'
+          : 'darkBronze'
   const m = medals[key]
   const title =
     kind === 'ccf' ? '中国计算机学会推荐目录' : 'CSRankings 收录 · 国际顶级会议/期刊'
